@@ -1,6 +1,6 @@
 export default function ExperienceInfoForm() {
    return (
-      <form>
+      <form className="personalInfoForm form">
          <h2>Experience:</h2>
          <div className="input-container">
             <label htmlFor="company">Company:</label>
