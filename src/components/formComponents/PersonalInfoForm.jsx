@@ -1,6 +1,7 @@
 export default function PersonalInfoForm() {
    return (
       <form className="personalInfoForm form">
+         <h2>Personal Details</h2>
          <div className="input-container">
             <label htmlFor="">Name:</label>
             <input type="text" name="name" id="name" />

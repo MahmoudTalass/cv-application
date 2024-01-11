@@ -1,6 +1,7 @@
 export default function EducationInfoForm() {
    return (
       <form>
+         <h2>Education:</h2>
          <div className="input-container">
             <label htmlFor="degree">Degree:</label>
             <input type="text" name="degree" id="degree" />
