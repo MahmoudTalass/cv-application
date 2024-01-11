@@ -11,8 +11,17 @@ export default function PersonalInfoForm() {
             <input type="email" name="email" id="email" />
          </div>
          <div className="input-container">
-            <label htmlFor="phone-number">Email:</label>
+            <label htmlFor="phone-number">Phone Number:</label>
             <input type="tel" name="phone-number" id="phone-number" />
+         </div>
+         <div className="input-container">
+            <label htmlFor="location">Location:</label>
+            <input
+               type="text"
+               name="location"
+               id="location"
+               placeholder="city, state"
+            />
          </div>
       </form>
    );
