@@ -19,10 +19,6 @@ export default function EducationInfoForm() {
             <input type="text" name="state" id="state" />
          </div>
          <div className="input-container">
-            <label htmlFor="state">State:</label>
-            <input type="text" name="state" id="state" />
-         </div>
-         <div className="input-container">
             <label htmlFor="graduation-date">Graduation Date:</label>
             <input
                type="text"
