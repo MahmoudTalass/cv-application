@@ -17,12 +17,6 @@ export default function ExperienceInfo({ experienceInfo }) {
                         {info.startDate} - {info.endDate}
                      </p>
                   </div>
-                  <div className="line-2-container">
-                     <p className="position">{info.position}</p>
-                     <p className="start-end-dates">
-                        {info.startDate} - {info.endDate}
-                     </p>
-                  </div>
                   <p className="job-description">{info.description}</p>
                </div>
             );
