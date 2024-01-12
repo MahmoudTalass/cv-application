@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function ExperienceInfo({ experienceInfo }) {
    return (
       <div className="experience-info-section resume-section">

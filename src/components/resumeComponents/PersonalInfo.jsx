@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 export default function PersonalInfo({ personalInfo }) {
    return (
       <div className="personal-info-section resume-section">
