@@ -17,17 +17,8 @@ export default function App() {
       setEducationInfo([...educationInfo, { ...info }]);
    }
 
-   function handleExperienceInfo({
-      company,
-      position,
-      startDate,
-      endDate,
-      description,
-   }) {
-      setExperienceInfo([
-         ...experienceInfo,
-         { company, position, startDate, endDate, description },
-      ]);
+   function handleExperienceInfo(info) {
+      setExperienceInfo([...experienceInfo, { ...info }]);
    }
 
    return (
