@@ -13,6 +13,7 @@ export default function ResumeForms({
    personalInfo,
    educationInfo,
    experienceInfo,
+   handleRemoveEducation,
 }) {
    const [displayForms, setDisplayForms] = useState({
       showPersonalForm: true,
@@ -85,7 +86,10 @@ export default function ResumeForms({
             {displayInfo.showEducationList && (
                <div className="education-content-card content-card">
                   {educationInfo.length > 0 && (
-                     <EducationList educationInfo={educationInfo} />
+                     <EducationList
+                        educationInfo={educationInfo}
+                        handleRemoveEducation={handleRemoveEducation}
+                     />
                   )}
                   {!displayForms.showEducationForm && (
                      <button
