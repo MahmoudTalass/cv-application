@@ -3,6 +3,7 @@ import EducationInfoForm from "./EducationInfoForm";
 import ExperienceInfoForm from "./ExperienceInfoForm";
 import PersonalInfoForm from "./PersonalInfoForm";
 import EducationList from "./EducationList";
+import ExperienceList from "./ExperienceList";
 import { useState } from "react";
 
 export default function ResumeForms({
@@ -110,16 +111,7 @@ export default function ResumeForms({
             </button>
             {displayInfo.showExperienceList && (
                <>
-                  <ul className="experiences-list">
-                     {experienceInfo.map((info) => {
-                        return (
-                           <li key={info.id} className="education-info-display">
-                              <p>{info.position}</p>
-                              <p>{info.company}</p>
-                           </li>
-                        );
-                     })}
-                  </ul>
+                  <ExperienceList experienceInfo={experienceInfo} />
                   <button
                      onClick={() => handleDisplayForms("showExperienceForm")}
                   >
