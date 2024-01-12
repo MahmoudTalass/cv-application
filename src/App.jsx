@@ -9,8 +9,8 @@ export default function App() {
    const [educationInfo, setEducationInfo] = useState([]);
    const [experienceInfo, setExperienceInfo] = useState([]);
 
-   function handlePersonalInfo(name, email, phoneNumber) {
-      setPersonalInfo({ name, email, phoneNumber });
+   function handlePersonalInfo({ name, email, phoneNumber, location }) {
+      setPersonalInfo({ name, email, phoneNumber, location });
    }
 
    function handleEducationInfo(degree, school, city, state, graduationDate) {
