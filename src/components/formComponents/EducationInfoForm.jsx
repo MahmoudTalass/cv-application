@@ -32,6 +32,7 @@ export default function EducationInfoForm() {
                placeholder="MM/YYYY"
             />
          </div>
+         <button type="submit">Submit</button>
       </form>
    );
 }

@@ -23,6 +23,8 @@ export default function PersonalInfoForm() {
                placeholder="city, state"
             />
          </div>
+
+         <button type="submit">Submit</button>
       </form>
    );
 }

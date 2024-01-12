@@ -41,6 +41,8 @@ export default function ExperienceInfoForm() {
                rows="10"
             ></textarea>
          </div>
+
+         <button type="submit">Submit</button>
       </form>
    );
 }
