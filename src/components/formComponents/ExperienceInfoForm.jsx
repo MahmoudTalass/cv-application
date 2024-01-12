@@ -17,7 +17,6 @@ export default function ExperienceInfoForm({ handleExperienceInfo }) {
             handleExperienceInfo(currentInfo);
          }}
       >
-         <h2>Experience:</h2>
          <div className="input-container">
             <label htmlFor="company">Company:</label>
             <input

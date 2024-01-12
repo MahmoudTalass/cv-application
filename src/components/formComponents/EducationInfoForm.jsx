@@ -16,7 +16,6 @@ export default function EducationInfoForm({ handleEducationInfo }) {
             handleEducationInfo(currentInfo);
          }}
       >
-         <h2>Education:</h2>
          <div className="input-container">
             <label htmlFor="degree">Degree:</label>
             <input

@@ -16,7 +16,6 @@ export default function PersonalInfoForm({ handlePersonalInfo }) {
             handlePersonalInfo(currentInfo);
          }}
       >
-         <h2>Personal Details</h2>
          <div className="input-container">
             <label htmlFor="">Name:</label>
             <input
