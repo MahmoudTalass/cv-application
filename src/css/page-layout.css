@@ -4,7 +4,26 @@
    box-sizing: border-box;
 }
 
+#root {
+   min-height: 100vh;
+}
+
 .page-container {
    display: flex;
    flex-direction: column;
+   min-height: 100vh;
+}
+
+.header {
+   text-align: center;
+   padding: 1rem 0;
+}
+
+.main-content {
+   display: flex;
+   justify-content: center;
+}
+
+.footer {
+   margin-top: auto;
 }
