@@ -13,20 +13,27 @@ export default function App() {
       setPersonalInfo({ name, email, phoneNumber, location });
    }
 
-   function handleEducationInfo(degree, school, city, state, graduationDate) {
+   function handleEducationInfo({
+      degree,
+      school,
+      city,
+      state,
+      graduationDate,
+      id,
+   }) {
       setEducationInfo([
          ...educationInfo,
-         { degree, school, city, state, graduationDate },
+         { degree, school, city, state, graduationDate, id },
       ]);
    }
 
-   function handleExperienceInfo(
+   function handleExperienceInfo({
       company,
       position,
       startDate,
       endDate,
-      description
-   ) {
+      description,
+   }) {
       setExperienceInfo([
          ...experienceInfo,
          { company, position, startDate, endDate, description },
@@ -41,7 +48,6 @@ export default function App() {
                handlePersonalInfo={handlePersonalInfo}
                handleEducationInfo={handleEducationInfo}
                handleExperienceInfo={handleExperienceInfo}
-               personalInfo={personalInfo}
                educationInfo={educationInfo}
                experienceInfo={experienceInfo}
             />
