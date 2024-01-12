@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
-export default function PersonalInfoForm({ handlePersonalInfo, personalInfo }) {
-   let currentInfo = {};
+import { useState } from "react";
+
+export default function PersonalInfoForm({ handlePersonalInfo }) {
+   const [currentInfo, setCurrentInfo] = useState({});
+
    return (
       <form
          className="personalInfoForm form"
@@ -17,9 +20,9 @@ export default function PersonalInfoForm({ handlePersonalInfo, personalInfo }) {
                name="name"
                id="name"
                required
-               value={personalInfo.name}
+               value={currentInfo.name || ""}
                onChange={(e) => {
-                  currentInfo.name = e.target.value;
+                  setCurrentInfo({ ...currentInfo, name: e.target.value });
                }}
             />
          </div>
@@ -30,9 +33,9 @@ export default function PersonalInfoForm({ handlePersonalInfo, personalInfo }) {
                name="email"
                id="email"
                required
-               value={personalInfo.email}
+               value={currentInfo.email || ""}
                onChange={(e) => {
-                  currentInfo.email = e.target.value;
+                  setCurrentInfo({ ...currentInfo, email: e.target.value });
                }}
             />
          </div>
@@ -43,9 +46,12 @@ export default function PersonalInfoForm({ handlePersonalInfo, personalInfo }) {
                name="phone-number"
                id="phone-number"
                required
-               value={personalInfo.phoneNumber}
+               value={currentInfo.phoneNumber || ""}
                onChange={(e) => {
-                  currentInfo.phoneNumber = e.target.value;
+                  setCurrentInfo({
+                     ...currentInfo,
+                     phoneNumber: e.target.value,
+                  });
                }}
             />
          </div>
@@ -57,9 +63,9 @@ export default function PersonalInfoForm({ handlePersonalInfo, personalInfo }) {
                id="location"
                placeholder="city, state"
                required
-               value={personalInfo.location}
+               value={currentInfo.location || ""}
                onChange={(e) => {
-                  currentInfo.location = e.target.value;
+                  setCurrentInfo({ ...currentInfo, location: e.target.value });
                }}
             />
          </div>
