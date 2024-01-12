@@ -1,6 +1,9 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-export default function EducationInfoForm({ handleEducationInfo }) {
+export default function EducationInfoForm({
+   handleEducationInfo,
+   handleDisplayForms,
+}) {
    const [currentInfo, setCurrentInfo] = useState({});
 
    function handleChange(e, key) {
@@ -14,6 +17,7 @@ export default function EducationInfoForm({ handleEducationInfo }) {
             e.preventDefault();
             currentInfo.id = crypto.randomUUID();
             handleEducationInfo(currentInfo);
+            handleDisplayForms("showEducationForm");
          }}
       >
          <div className="input-container">

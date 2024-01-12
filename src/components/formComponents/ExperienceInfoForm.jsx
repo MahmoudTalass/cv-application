@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export default function ExperienceInfoForm({ handleExperienceInfo }) {
+export default function ExperienceInfoForm({
+   handleExperienceInfo,
+   handleDisplayForms,
+}) {
    const [currentInfo, setCurrentInfo] = useState({});
 
    function handleChange(e, key) {
@@ -15,6 +18,7 @@ export default function ExperienceInfoForm({ handleExperienceInfo }) {
             e.preventDefault();
             currentInfo.id = crypto.randomUUID;
             handleExperienceInfo(currentInfo);
+            handleDisplayForms("showExperienceForm");
          }}
       >
          <div className="input-container">
