@@ -18,12 +18,12 @@ export default function ResumeForms({
          <div>
             <button>Education:</button>
             <EducationInfoForm handleEducationInfo={handleEducationInfo} />
-            <div className="current-education-info"></div>
+            <ul className="education-list"></ul>
          </div>
          <div>
             <h2>Experience:</h2>
             <ExperienceInfoForm handleExperienceInfo={handleExperienceInfo} />
-            <div className="current-experience-info"></div>
+            <ul className="experiences-list"></ul>
          </div>
       </section>
    );
