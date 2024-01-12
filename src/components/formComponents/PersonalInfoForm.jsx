@@ -4,6 +4,10 @@ import { useState } from "react";
 export default function PersonalInfoForm({ handlePersonalInfo }) {
    const [currentInfo, setCurrentInfo] = useState({});
 
+   function handleChange(e, key) {
+      setCurrentInfo({ ...currentInfo, [key]: e.target.value });
+   }
+
    return (
       <form
          className="personalInfoForm form"
@@ -21,9 +25,7 @@ export default function PersonalInfoForm({ handlePersonalInfo }) {
                id="name"
                required
                value={currentInfo.name || ""}
-               onChange={(e) => {
-                  setCurrentInfo({ ...currentInfo, name: e.target.value });
-               }}
+               onChange={(e) => handleChange(e, ["name"])}
             />
          </div>
          <div className="input-container">
@@ -34,9 +36,7 @@ export default function PersonalInfoForm({ handlePersonalInfo }) {
                id="email"
                required
                value={currentInfo.email || ""}
-               onChange={(e) => {
-                  setCurrentInfo({ ...currentInfo, email: e.target.value });
-               }}
+               onChange={(e) => handleChange(e, ["email"])}
             />
          </div>
          <div className="input-container">
@@ -47,12 +47,7 @@ export default function PersonalInfoForm({ handlePersonalInfo }) {
                id="phone-number"
                required
                value={currentInfo.phoneNumber || ""}
-               onChange={(e) => {
-                  setCurrentInfo({
-                     ...currentInfo,
-                     phoneNumber: e.target.value,
-                  });
-               }}
+               onChange={(e) => handleChange(e, ["phoneNumber"])}
             />
          </div>
          <div className="input-container">
@@ -64,9 +59,7 @@ export default function PersonalInfoForm({ handlePersonalInfo }) {
                placeholder="city, state"
                required
                value={currentInfo.location || ""}
-               onChange={(e) => {
-                  setCurrentInfo({ ...currentInfo, location: e.target.value });
-               }}
+               onChange={(e) => handleChange(e, ["location"])}
             />
          </div>
          <button type="submit">Submit</button>

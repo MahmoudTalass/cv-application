@@ -3,6 +3,10 @@ import { useState } from "react";
 export default function EducationInfoForm({ handleEducationInfo }) {
    const [currentInfo, setCurrentInfo] = useState({});
 
+   function handleChange(e, key) {
+      setCurrentInfo({ ...currentInfo, [key]: e.target.value });
+   }
+
    return (
       <form
          className="personalInfoForm form"
@@ -20,9 +24,7 @@ export default function EducationInfoForm({ handleEducationInfo }) {
                name="degree"
                id="degree"
                required
-               onChange={(e) => {
-                  setCurrentInfo({ ...currentInfo, degree: e.target.value });
-               }}
+               onChange={(e) => handleChange(e, ["degree"])}
             />
          </div>
          <div className="input-container">
@@ -32,9 +34,7 @@ export default function EducationInfoForm({ handleEducationInfo }) {
                name="school"
                id="school"
                required
-               onChange={(e) => {
-                  setCurrentInfo({ ...currentInfo, school: e.target.value });
-               }}
+               onChange={(e) => handleChange(e, ["school"])}
             />
          </div>
          <div className="input-container">
@@ -44,9 +44,7 @@ export default function EducationInfoForm({ handleEducationInfo }) {
                name="city"
                id="city"
                required
-               onChange={(e) => {
-                  setCurrentInfo({ ...currentInfo, city: e.target.value });
-               }}
+               onChange={(e) => handleChange(e, ["city"])}
             />
          </div>
          <div className="input-container">
@@ -56,9 +54,7 @@ export default function EducationInfoForm({ handleEducationInfo }) {
                name="state"
                id="state"
                required
-               onChange={(e) => {
-                  setCurrentInfo({ ...currentInfo, state: e.target.value });
-               }}
+               onChange={(e) => handleChange(e, ["state"])}
             />
          </div>
          <div className="input-container">
@@ -70,12 +66,7 @@ export default function EducationInfoForm({ handleEducationInfo }) {
                maxLength={7}
                placeholder="MM/YYYY"
                required
-               onChange={(e) => {
-                  setCurrentInfo({
-                     ...currentInfo,
-                     graduationDate: e.target.value,
-                  });
-               }}
+               onChange={(e) => handleChange(e, ["graduationDate"])}
             />
          </div>
          <button type="submit">Submit</button>
