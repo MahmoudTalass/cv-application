@@ -83,7 +83,16 @@ export default function ResumeForms({
 
             {displayInfo.showEducationList && (
                <>
-                  <ul className="education-list"></ul>
+                  <ul className="education-list">
+                     {educationInfo.map((info) => {
+                        return (
+                           <li key={info.id} className="education-info-display">
+                              <p>{info.degree}</p>
+                              <p>{info.school}</p>
+                           </li>
+                        );
+                     })}
+                  </ul>
                   {!displayForms.showEducationForm && (
                      <button
                         onClick={() => handleDisplayForms("showEducationForm")}
@@ -94,6 +103,7 @@ export default function ResumeForms({
                   {displayForms.showEducationForm && (
                      <EducationInfoForm
                         handleEducationInfo={handleEducationInfo}
+                        handleDisplayForms={handleDisplayForms}
                      />
                   )}
                </>
@@ -108,7 +118,16 @@ export default function ResumeForms({
             </button>
             {displayInfo.showExperienceList && (
                <>
-                  <ul className="experiences-list"> </ul>
+                  <ul className="experiences-list">
+                     {experienceInfo.map((info) => {
+                        return (
+                           <li key={info.id} className="education-info-display">
+                              <p>{info.position}</p>
+                              <p>{info.company}</p>
+                           </li>
+                        );
+                     })}
+                  </ul>
                   <button
                      onClick={() => handleDisplayForms("showExperienceForm")}
                   >
@@ -119,6 +138,7 @@ export default function ResumeForms({
             {displayForms.showExperienceForm && (
                <ExperienceInfoForm
                   handleExperienceInfo={handleExperienceInfo}
+                  handleDisplayForms={handleDisplayForms}
                />
             )}
          </div>
