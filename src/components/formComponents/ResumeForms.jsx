@@ -57,7 +57,7 @@ export default function ResumeForms({
             </button>
 
             {displayInfo.showPersonalInfo && (
-               <div className="personal-info-content-card">
+               <div className="personal-content-card content-card">
                   {!isPersonalInfoFilled && (
                      <PersonalInfoForm
                         handlePersonalInfo={handlePersonalInfo}
@@ -83,10 +83,13 @@ export default function ResumeForms({
             </button>
 
             {displayInfo.showEducationList && (
-               <>
-                  <EducationList educationInfo={educationInfo} />
+               <div className="education-content-card content-card">
+                  {educationInfo.length > 0 && (
+                     <EducationList educationInfo={educationInfo} />
+                  )}
                   {!displayForms.showEducationForm && (
                      <button
+                        className="add-education-btn add-btn"
                         onClick={() => handleDisplayForms("showEducationForm")}
                      >
                         Add
@@ -98,7 +101,7 @@ export default function ResumeForms({
                         handleDisplayForms={handleDisplayForms}
                      />
                   )}
-               </>
+               </div>
             )}
          </div>
          <div className="form-section-container">
@@ -109,14 +112,17 @@ export default function ResumeForms({
                Experience:
             </button>
             {displayInfo.showExperienceList && (
-               <>
-                  <ExperienceList experienceInfo={experienceInfo} />
+               <div className="experience-card content-card">
+                  {experienceInfo.length > 0 && (
+                     <ExperienceList experienceInfo={experienceInfo} />
+                  )}
                   <button
+                     className="add-experience-btn add-btn"
                      onClick={() => handleDisplayForms("showExperienceForm")}
                   >
                      Add
                   </button>
-               </>
+               </div>
             )}
             {displayForms.showExperienceForm && (
                <ExperienceInfoForm
