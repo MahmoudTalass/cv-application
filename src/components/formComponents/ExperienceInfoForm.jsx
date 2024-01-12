@@ -10,9 +10,10 @@ export default function ExperienceInfoForm({ handleExperienceInfo }) {
 
    return (
       <form
-         className="personalInfoForm form"
+         className="experienceInfoForm form"
          onSubmit={(e) => {
             e.preventDefault();
+            currentInfo.id = crypto.randomUUID;
             handleExperienceInfo(currentInfo);
          }}
       >
