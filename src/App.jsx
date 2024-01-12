@@ -10,6 +10,7 @@ export default function App() {
       email: "mahmoud@gmail.com",
       phoneNumber: "555 555-5555",
       location: "College Park, MD",
+      id: crypto.randomUUID(),
    });
    const [educationInfo, setEducationInfo] = useState([
       {
@@ -18,6 +19,7 @@ export default function App() {
          city: "College Park",
          state: "MD",
          graduationDate: "04/2024",
+         id: crypto.randomUUID(),
       },
       {
          school: "Harvard College",
@@ -25,6 +27,7 @@ export default function App() {
          city: "Cambridege",
          state: "MA",
          graduationDate: "12/2018",
+         id: crypto.randomUUID(),
       },
    ]);
    const [experienceInfo, setExperienceInfo] = useState([
@@ -35,6 +38,7 @@ export default function App() {
          endDate: "Present",
          description:
             "Developed a responsive website UI using HTML, CSS, and JavaScript that reduced overall page load speed by 15% Enhanced the usability of existing applications by applying the latest accessibility standards and best practices Collaborated with project managers to successfully deliver projects on time, resulting in an increase in organizational efficiency",
+         id: crypto.randomUUID(),
       },
       {
          company: "blue shoes",
@@ -43,6 +47,7 @@ export default function App() {
          endDate: "08/2022",
          description:
             "Spearheaded the development of a large-scale software system to meet regulatory standards, resulting in a 25% improvement in customer satisfaction Upgraded a critical server-side solution with automation and optimized code to enhance security and process speed by 27%",
+         id: crypto.randomUUID(),
       },
    ]);
 
@@ -58,6 +63,10 @@ export default function App() {
       setExperienceInfo([...experienceInfo, { ...info }]);
    }
 
+   function handleRemoveEducation(id) {
+      setEducationInfo(educationInfo.filter((info) => info.id !== id));
+   }
+
    return (
       <div className="page-container">
          <Header />
@@ -69,6 +78,7 @@ export default function App() {
                educationInfo={educationInfo}
                experienceInfo={experienceInfo}
                personalInfo={personalInfo}
+               handleRemoveEducation={handleRemoveEducation}
             />
             <Resume
                personalInfo={personalInfo}
