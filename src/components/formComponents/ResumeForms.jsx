@@ -2,6 +2,7 @@
 import EducationInfoForm from "./EducationInfoForm";
 import ExperienceInfoForm from "./ExperienceInfoForm";
 import PersonalInfoForm from "./PersonalInfoForm";
+import { useState } from "react";
 
 export default function ResumeForms({
    handlePersonalInfo,
@@ -10,9 +11,20 @@ export default function ResumeForms({
 }) {
    return (
       <section className="forms-container">
-         <PersonalInfoForm handlePersonalInfo={handlePersonalInfo} />
-         <EducationInfoForm handleEducationInfo={handleEducationInfo} />
-         <ExperienceInfoForm handleExperienceInfo={handleExperienceInfo} />
+         <div>
+            <button>Personal Details</button>
+            <PersonalInfoForm handlePersonalInfo={handlePersonalInfo} />
+         </div>
+         <div>
+            <button>Education:</button>
+            <EducationInfoForm handleEducationInfo={handleEducationInfo} />
+            <div className="current-education-info"></div>
+         </div>
+         <div>
+            <h2>Experience:</h2>
+            <ExperienceInfoForm handleExperienceInfo={handleExperienceInfo} />
+            <div className="current-experience-info"></div>
+         </div>
       </section>
    );
 }
