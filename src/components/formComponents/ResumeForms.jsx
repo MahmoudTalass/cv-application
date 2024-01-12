@@ -7,20 +7,12 @@ export default function ResumeForms({
    handlePersonalInfo,
    handleEducationInfo,
    handleExperienceInfo,
-   personalInfo,
-   educationInfo,
    experienceInfo,
 }) {
    return (
       <section className="forms-container">
-         <PersonalInfoForm
-            handlePersonalInfo={handlePersonalInfo}
-            personalInfo={personalInfo}
-         />
-         <EducationInfoForm
-            handleEducationInfo={handleEducationInfo}
-            educationInfo={educationInfo}
-         />
+         <PersonalInfoForm handlePersonalInfo={handlePersonalInfo} />
+         <EducationInfoForm handleEducationInfo={handleEducationInfo} />
          <ExperienceInfoForm
             handleExperienceInfo={handleExperienceInfo}
             experienceInfo={experienceInfo}
