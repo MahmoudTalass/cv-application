@@ -31,6 +31,7 @@ export default function App() {
                handleExperienceInfo={handleExperienceInfo}
                educationInfo={educationInfo}
                experienceInfo={experienceInfo}
+               personalInfo={personalInfo}
             />
             <Resume
                personalInfo={personalInfo}
