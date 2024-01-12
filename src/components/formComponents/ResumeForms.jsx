@@ -15,13 +15,13 @@ export default function ResumeForms({
    experienceInfo,
 }) {
    const [displayForms, setDisplayForms] = useState({
-      showPersonalForm: false,
+      showPersonalForm: true,
       showEducationForm: false,
       showExperienceForm: false,
    });
 
    const [displayInfo, setDisplayInfo] = useState({
-      showPersonalInfo: false,
+      showPersonalInfo: true,
       showEducationList: false,
       showExperienceList: false,
    });
@@ -48,15 +48,16 @@ export default function ResumeForms({
 
    return (
       <section className="forms-container">
-         <div>
+         <div className="form-section-container">
             <button
                className="display-current-info-btn"
                onClick={() => handleDisplayInfo("showPersonalInfo")}
             >
                Personal Details:
             </button>
+
             {displayInfo.showPersonalInfo && (
-               <>
+               <div className="personal-info-content-card">
                   {!isPersonalInfoFilled && (
                      <PersonalInfoForm
                         handlePersonalInfo={handlePersonalInfo}
@@ -67,15 +68,13 @@ export default function ResumeForms({
                      />
                   )}
 
-                  <div className="personalInfoDisplay">
-                     {personalInfo.name} {personalInfo.email}{" "}
-                     {personalInfo.phoneNumber} {personalInfo.location}
-                     info
+                  <div className="personal-info-display">
+                     <p>{personalInfo.name} ...</p>
                   </div>
-               </>
+               </div>
             )}
          </div>
-         <div>
+         <div className="form-section-container">
             <button
                className="display-current-info-btn"
                onClick={() => handleDisplayInfo("showEducationList")}
@@ -102,7 +101,7 @@ export default function ResumeForms({
                </>
             )}
          </div>
-         <div>
+         <div className="form-section-container">
             <button
                className="display-current-info-btn"
                onClick={() => handleDisplayInfo("showExperienceList")}
