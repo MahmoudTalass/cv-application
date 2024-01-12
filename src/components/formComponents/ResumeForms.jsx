@@ -4,10 +4,10 @@ import PersonalInfoForm from "./PersonalInfoForm";
 
 export default function ResumeForms() {
    return (
-      <>
+      <section className="forms-container">
          <PersonalInfoForm />
          <EducationInfoForm />
          <ExperienceInfoForm />
-      </>
+      </section>
    );
 }
