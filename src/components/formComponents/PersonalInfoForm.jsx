@@ -1,7 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export default function PersonalInfoForm({ handlePersonalInfo }) {
+export default function PersonalInfoForm({
+   handlePersonalInfo,
+   handleFirstPersonalInfoForm,
+}) {
    const [currentInfo, setCurrentInfo] = useState({});
 
    function handleChange(e, key) {
@@ -14,6 +17,7 @@ export default function PersonalInfoForm({ handlePersonalInfo }) {
          onSubmit={(e) => {
             e.preventDefault();
             handlePersonalInfo(currentInfo);
+            handleFirstPersonalInfoForm();
          }}
       >
          <div className="input-container">
