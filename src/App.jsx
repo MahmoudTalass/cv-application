@@ -45,9 +45,11 @@ export default function App() {
                educationInfo={educationInfo}
                experienceInfo={experienceInfo}
             />
-            {/* <Resume personalInfo={personalInfo}
+            <Resume
+               personalInfo={personalInfo}
                educationInfo={educationInfo}
-               experienceInfo={experienceInfo} /> */}
+               experienceInfo={experienceInfo}
+            />
          </main>
          <Footer />
       </div>
