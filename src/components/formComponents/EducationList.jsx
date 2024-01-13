@@ -2,6 +2,8 @@
 export default function EducationList({
    educationInfo,
    handleRemoveEducation,
+   handleDisplayEditForm,
+   setInfoBeingEdited,
 }) {
    return (
       <ul className="education-list">
@@ -12,6 +14,14 @@ export default function EducationList({
                   <p>{info.school}</p>
                   <button onClick={() => handleRemoveEducation(info.id)}>
                      X
+                  </button>
+                  <button
+                     onClick={() => {
+                        handleDisplayEditForm("educationSection");
+                        setInfoBeingEdited(info, "educationInfo");
+                     }}
+                  >
+                     Edit
                   </button>
                </li>
             );
