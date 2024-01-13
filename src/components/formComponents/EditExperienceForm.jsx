@@ -1,8 +1,12 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export default function ExperienceInfoForm() {
-   const [currentInfo, setCurrentInfo] = useState({});
+export default function ExperienceInfoForm({
+   handleEditExperience,
+   editedExperience,
+   handleDisplayEditForm,
+}) {
+   const [currentInfo, setCurrentInfo] = useState(editedExperience);
 
    function handleChange(e, key) {
       setCurrentInfo({ ...currentInfo, [key]: e.target.value });
@@ -13,6 +17,8 @@ export default function ExperienceInfoForm() {
          className="experienceInfoForm form"
          onSubmit={(e) => {
             e.preventDefault();
+            handleDisplayEditForm("experienceSection");
+            handleEditExperience(currentInfo);
          }}
       >
          <div className="input-container">
@@ -21,6 +27,7 @@ export default function ExperienceInfoForm() {
                type="text"
                name="company"
                id="company"
+               value={currentInfo.company || ""}
                onChange={(e) => handleChange(e, "company")}
             />
          </div>
@@ -30,6 +37,7 @@ export default function ExperienceInfoForm() {
                type="text"
                name="position-title"
                id="position-title"
+               value={currentInfo.position || ""}
                onChange={(e) => handleChange(e, "position")}
             />
          </div>
@@ -42,6 +50,7 @@ export default function ExperienceInfoForm() {
                   id="start-date"
                   maxLength={7}
                   placeholder="MM/YYYY"
+                  value={currentInfo.startDate || ""}
                   onChange={(e) => handleChange(e, "startDate")}
                />
             </div>
@@ -53,6 +62,7 @@ export default function ExperienceInfoForm() {
                   id="end-date"
                   maxLength={7}
                   placeholder="MM/YYYY"
+                  value={currentInfo.endDate || ""}
                   onChange={(e) => handleChange(e, "endDate")}
                />
             </div>
@@ -64,6 +74,7 @@ export default function ExperienceInfoForm() {
                id="description"
                cols="30"
                rows="10"
+               value={currentInfo.description || ""}
                onChange={(e) => handleChange(e, "description")}
             ></textarea>
          </div>
