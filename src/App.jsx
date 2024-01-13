@@ -67,6 +67,10 @@ export default function App() {
       setEducationInfo(educationInfo.filter((info) => info.id !== id));
    }
 
+   function handleRemoveExperience(id) {
+      setExperienceInfo(experienceInfo.filter((info) => info.id !== id));
+   }
+
    return (
       <div className="page-container">
          <Header />
@@ -79,6 +83,7 @@ export default function App() {
                experienceInfo={experienceInfo}
                personalInfo={personalInfo}
                handleRemoveEducation={handleRemoveEducation}
+               handleRemoveExperience={handleRemoveExperience}
             />
             <Resume
                personalInfo={personalInfo}

@@ -14,6 +14,7 @@ export default function ResumeForms({
    educationInfo,
    experienceInfo,
    handleRemoveEducation,
+   handleRemoveExperience,
 }) {
    const [displayForms, setDisplayForms] = useState({
       showPersonalForm: true,
@@ -118,7 +119,10 @@ export default function ResumeForms({
             {displayInfo.showExperienceList && (
                <div className="experience-card content-card">
                   {experienceInfo.length > 0 && (
-                     <ExperienceList experienceInfo={experienceInfo} />
+                     <ExperienceList
+                        experienceInfo={experienceInfo}
+                        handleRemoveExperience={handleRemoveExperience}
+                     />
                   )}
                   <button
                      className="add-experience-btn add-btn"
