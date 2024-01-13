@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 export default function EditEducationForm({
-   handleDisplayEducationEditForm,
+   handleDisplayEditForm,
    editedEducation,
    handleEditEducation,
 }) {
@@ -17,7 +17,7 @@ export default function EditEducationForm({
          className="personalInfoForm form"
          onSubmit={(e) => {
             e.preventDefault();
-            handleDisplayEducationEditForm();
+            handleDisplayEditForm("educationSection");
             handleEditEducation(currentInfo);
          }}
       >
