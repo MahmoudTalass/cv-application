@@ -2,6 +2,8 @@
 export default function ExperienceList({
    experienceInfo,
    handleRemoveExperience,
+   handleDisplayEditForm,
+   setInfoBeingEdited,
 }) {
    return (
       <ul className="experiences-list">
@@ -12,6 +14,14 @@ export default function ExperienceList({
                   <p>{info.company}</p>
                   <button onClick={() => handleRemoveExperience(info.id)}>
                      X
+                  </button>
+                  <button
+                     onClick={() => {
+                        handleDisplayEditForm("experienceSection");
+                        setInfoBeingEdited(info, "experienceInfo");
+                     }}
+                  >
+                     Edit
                   </button>
                </li>
             );

@@ -180,6 +180,8 @@ export default function ResumeForms({
                      <ExperienceList
                         experienceInfo={experienceInfo}
                         handleRemoveExperience={handleRemoveExperience}
+                        handleDisplayEditForm={handleDisplayEditForm}
+                        setInfoBeingEdited={setInfoBeingEdited}
                      />
                   )}
                   <button
