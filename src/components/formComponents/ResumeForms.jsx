@@ -185,14 +185,15 @@ export default function ResumeForms({
                         editedExperience={editedInfo.experienceInfo}
                      />
                   )}
-                  {experienceInfo.length > 0 && (
-                     <ExperienceList
-                        experienceInfo={experienceInfo}
-                        handleRemoveExperience={handleRemoveExperience}
-                        handleDisplayEditForm={handleDisplayEditForm}
-                        setInfoBeingEdited={setInfoBeingEdited}
-                     />
-                  )}
+                  {experienceInfo.length > 0 &&
+                     !isEditing.experienceSection && (
+                        <ExperienceList
+                           experienceInfo={experienceInfo}
+                           handleRemoveExperience={handleRemoveExperience}
+                           handleDisplayEditForm={handleDisplayEditForm}
+                           setInfoBeingEdited={setInfoBeingEdited}
+                        />
+                     )}
                   <button
                      className="add-experience-btn add-btn"
                      onClick={() => handleDisplayForms("showExperienceForm")}
