@@ -5,6 +5,7 @@ import PersonalInfoForm from "./PersonalInfoForm";
 import EducationList from "./EducationList";
 import ExperienceList from "./ExperienceList";
 import { useState } from "react";
+import EditEducationForm from "./EditEducationForm";
 
 export default function ResumeForms({
    handlePersonalInfo,
@@ -15,25 +16,45 @@ export default function ResumeForms({
    experienceInfo,
    handleRemoveEducation,
    handleRemoveExperience,
+   handleEditEducation,
 }) {
+   // This state controls which forms show up
    const [displayForms, setDisplayForms] = useState({
       showPersonalForm: true,
       showEducationForm: false,
       showExperienceForm: false,
    });
 
+   // This state controls if the information included in a resume section show up and are opened
    const [displayInfo, setDisplayInfo] = useState({
       showPersonalInfo: true,
       showEducationList: false,
       showExperienceList: false,
    });
 
+   // This state controls if a resume section is currently being edited
+   const [isEditing, setIsEditing] = useState({
+      personalInfoSection: false,
+      educationSection: false,
+      experienceSection: false,
+   });
+
+   // This states holds the object/resume section information that is currenlty being edited so it is used later
+   const [editedInfo, setEditedInfo] = useState({
+      personalInfo: {},
+      educationInfo: {},
+      experienceInfo: {},
+   });
+
+   // This state tells the program if the personal info form as be filled out so it only gets edited after
    const [isPersonalInfoFilled, setIsPersonalInfoFilled] = useState(false);
 
+   // This function tells the program that the personal info form section has been filled once
    function handleFirstPersonalInfoForm() {
       setIsPersonalInfoFilled(true);
    }
 
+   // This function controls which forms should be displayed
    function handleDisplayForms(formName) {
       setDisplayForms({
          ...displayForms,
@@ -41,11 +62,22 @@ export default function ResumeForms({
       });
    }
 
+   // This function controls which of the cards (personal details, education, and experience) is opened/displayed
    function handleDisplayInfo(infoSection) {
       setDisplayInfo({
          ...displayInfo,
          [infoSection]: !displayInfo[infoSection],
       });
+   }
+
+   // This function controls if the form of the section being edited is displayed
+   function handleDisplayEditForm(formName) {
+      setIsEditing({ ...isEditing, [formName]: !isEditing[formName] });
+   }
+
+   // This function sets the given object to be the current education information being edited
+   function setInfoBeingEdited(info, infoType) {
+      setEditedInfo({ ...editedInfo, [infoType]: info });
    }
 
    return (
@@ -86,10 +118,19 @@ export default function ResumeForms({
 
             {displayInfo.showEducationList && (
                <div className="education-content-card content-card">
-                  {educationInfo.length > 0 && (
+                  {isEditing.educationSection && (
+                     <EditEducationForm
+                        handleEditEducation={handleEditEducation}
+                        handleDisplayEditForm={handleDisplayEditForm}
+                        editedEducation={editedInfo.educationInfo}
+                     />
+                  )}
+                  {educationInfo.length > 0 && !isEditing.educationSection && (
                      <EducationList
                         educationInfo={educationInfo}
                         handleRemoveEducation={handleRemoveEducation}
+                        handleDisplayEditForm={handleDisplayEditForm}
+                        setInfoBeingEdited={setInfoBeingEdited}
                      />
                   )}
                   {!displayForms.showEducationForm && (
