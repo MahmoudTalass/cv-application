@@ -7,6 +7,7 @@ import ExperienceList from "./ExperienceList";
 import { useState } from "react";
 import EditEducationForm from "./EditEducationForm";
 import EditPersonalInfoForm from "./EditPersonalInfoForm";
+import EditExperienceForm from "./EditExperienceForm";
 
 export default function ResumeForms({
    handlePersonalInfo,
@@ -18,6 +19,7 @@ export default function ResumeForms({
    handleRemoveEducation,
    handleRemoveExperience,
    handleEditEducation,
+   handleEditExperience,
 }) {
    // This state controls which forms show up
    const [displayForms, setDisplayForms] = useState({
@@ -176,6 +178,13 @@ export default function ResumeForms({
             </button>
             {displayInfo.showExperienceList && (
                <div className="experience-card content-card">
+                  {isEditing.experienceSection && (
+                     <EditExperienceForm
+                        handleEditExperience={handleEditExperience}
+                        handleDisplayEditForm={handleDisplayEditForm}
+                        editedExperience={editedInfo.experienceInfo}
+                     />
+                  )}
                   {experienceInfo.length > 0 && (
                      <ExperienceList
                         experienceInfo={experienceInfo}
