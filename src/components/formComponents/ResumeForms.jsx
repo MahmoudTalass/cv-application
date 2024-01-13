@@ -39,7 +39,8 @@ export default function ResumeForms({
       experienceSection: false,
    });
 
-   // This states holds the object/resume section information that is currenlty being edited so it is used later
+   // This states holds the object/resume section information that is currenlty being edited so it is
+   // passed to editing forms
    const [editedInfo, setEditedInfo] = useState({
       personalInfo: {},
       educationInfo: {},
