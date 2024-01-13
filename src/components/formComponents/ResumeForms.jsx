@@ -112,7 +112,7 @@ export default function ResumeForms({
 
                   {isPersonalInfoFilled && (
                      <div className="personal-info-display">
-                        <p>{personalInfo.name} ...</p>
+                        <p>{personalInfo.name}</p>
                         <button
                            onClick={() => {
                               handleDisplayEditForm("personalInfoSection");
