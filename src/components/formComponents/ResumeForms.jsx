@@ -6,6 +6,7 @@ import EducationList from "./EducationList";
 import ExperienceList from "./ExperienceList";
 import { useState } from "react";
 import EditEducationForm from "./EditEducationForm";
+import EditPersonalInfoForm from "./EditPersonalInfoForm";
 
 export default function ResumeForms({
    handlePersonalInfo,
@@ -42,7 +43,6 @@ export default function ResumeForms({
    // This states holds the object/resume section information that is currenlty being edited so it is
    // passed to editing forms
    const [editedInfo, setEditedInfo] = useState({
-      personalInfo: {},
       educationInfo: {},
       experienceInfo: {},
    });
@@ -93,6 +93,13 @@ export default function ResumeForms({
 
             {displayInfo.showPersonalInfo && (
                <div className="personal-content-card content-card">
+                  {isEditing.personalInfoSection && isPersonalInfoFilled && (
+                     <EditPersonalInfoForm
+                        editedPersonalInfo={personalInfo}
+                        handleDisplayEditForm={handleDisplayEditForm}
+                        handlePersonalInfo={handlePersonalInfo}
+                     />
+                  )}
                   {!isPersonalInfoFilled && (
                      <PersonalInfoForm
                         handlePersonalInfo={handlePersonalInfo}
@@ -103,9 +110,18 @@ export default function ResumeForms({
                      />
                   )}
 
-                  <div className="personal-info-display">
-                     <p>{personalInfo.name} ...</p>
-                  </div>
+                  {isPersonalInfoFilled && (
+                     <div className="personal-info-display">
+                        <p>{personalInfo.name} ...</p>
+                        <button
+                           onClick={() => {
+                              handleDisplayEditForm("personalInfoSection");
+                           }}
+                        >
+                           Edit
+                        </button>
+                     </div>
+                  )}
                </div>
             )}
          </div>
