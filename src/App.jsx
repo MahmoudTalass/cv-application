@@ -83,6 +83,18 @@ export default function App() {
       );
    }
 
+   function handleEditExperience(info) {
+      setExperienceInfo(
+         experienceInfo.map((data) => {
+            if (data.id === info.id) {
+               return info;
+            } else {
+               return data;
+            }
+         })
+      );
+   }
+
    return (
       <div className="page-container">
          <Header />
@@ -97,6 +109,7 @@ export default function App() {
                handleRemoveEducation={handleRemoveEducation}
                handleRemoveExperience={handleRemoveExperience}
                handleEditEducation={handleEditEducation}
+               handleEditExperience={handleEditExperience}
             />
             <Resume
                personalInfo={personalInfo}
