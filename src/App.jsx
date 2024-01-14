@@ -71,11 +71,11 @@ export default function App() {
       setExperienceInfo(experienceInfo.filter((info) => info.id !== id));
    }
 
-   function handleEditEducation(info) {
+   function handleEditEducation(editedData) {
       setEducationInfo(
          educationInfo.map((data) => {
-            if (data.id === info.id) {
-               return info;
+            if (data.id === editedData.id) {
+               return editedData;
             } else {
                return data;
             }
@@ -83,11 +83,11 @@ export default function App() {
       );
    }
 
-   function handleEditExperience(info) {
+   function handleEditExperience(editedData) {
       setExperienceInfo(
          experienceInfo.map((data) => {
-            if (data.id === info.id) {
-               return info;
+            if (data.id === editedData.id) {
+               return editedData;
             } else {
                return data;
             }
