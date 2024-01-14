@@ -1,13 +1,11 @@
 /* eslint-disable react/prop-types */
-import EducationInfoForm from "./EducationInfoForm";
 import ExperienceInfoForm from "./ExperienceInfoForm";
 import PersonalInfoForm from "./PersonalInfoForm";
-import EducationList from "./EducationList";
 import ExperienceList from "./ExperienceList";
 import { useState } from "react";
-import EditEducationForm from "./EditEducationForm";
 import EditPersonalInfoForm from "./EditPersonalInfoForm";
 import EditExperienceForm from "./EditExperienceForm";
+import EducationCard from "./EducationCard";
 
 export default function ResumeForms({
    handlePersonalInfo,
@@ -29,10 +27,10 @@ export default function ResumeForms({
    });
 
    // This state controls if the information included in a resume section show up and are opened
-   const [displayInfo, setDisplayInfo] = useState({
-      showPersonalInfo: true,
-      showEducationList: false,
-      showExperienceList: false,
+   const [displayCard, setDisplayCard] = useState({
+      showPersonalCard: true,
+      showEducationCard: false,
+      showExperienceCard: false,
    });
 
    // This state controls if a resume section is currently being edited
@@ -66,10 +64,10 @@ export default function ResumeForms({
    }
 
    // This function controls which of the cards (personal details, education, and experience) is opened/displayed
-   function handleDisplayInfo(infoSection) {
-      setDisplayInfo({
-         ...displayInfo,
-         [infoSection]: !displayInfo[infoSection],
+   function handleDisplayCard(cardSection) {
+      setDisplayCard({
+         ...displayCard,
+         [cardSection]: !displayCard[cardSection],
       });
    }
 
@@ -79,7 +77,7 @@ export default function ResumeForms({
    }
 
    // This function sets the given object to be the current education information being edited
-   function setInfoBeingEdited(info, infoType) {
+   function handleInfoBeingEdited(info, infoType) {
       setEditedInfo({ ...editedInfo, [infoType]: info });
    }
 
@@ -88,12 +86,12 @@ export default function ResumeForms({
          <div className="form-section-container">
             <button
                className="display-current-info-btn"
-               onClick={() => handleDisplayInfo("showPersonalInfo")}
+               onClick={() => handleDisplayCard("showPersonalCard")}
             >
                Personal Details:
             </button>
 
-            {displayInfo.showPersonalInfo && (
+            {displayCard.showPersonalCard && (
                <div className="personal-content-card content-card">
                   {isEditing.personalInfoSection && isPersonalInfoFilled && (
                      <EditPersonalInfoForm
@@ -130,53 +128,34 @@ export default function ResumeForms({
          <div className="form-section-container">
             <button
                className="display-current-info-btn"
-               onClick={() => handleDisplayInfo("showEducationList")}
+               onClick={() => handleDisplayCard("showEducationCard")}
             >
                Education:
             </button>
 
-            {displayInfo.showEducationList && (
-               <div className="education-content-card content-card">
-                  {isEditing.educationSection && (
-                     <EditEducationForm
-                        handleEditEducation={handleEditEducation}
-                        handleDisplayEditForm={handleDisplayEditForm}
-                        editedEducation={editedInfo.educationInfo}
-                     />
-                  )}
-                  {educationInfo.length > 0 && !isEditing.educationSection && (
-                     <EducationList
-                        educationInfo={educationInfo}
-                        handleRemoveEducation={handleRemoveEducation}
-                        handleDisplayEditForm={handleDisplayEditForm}
-                        setInfoBeingEdited={setInfoBeingEdited}
-                     />
-                  )}
-                  {!displayForms.showEducationForm && (
-                     <button
-                        className="add-education-btn add-btn"
-                        onClick={() => handleDisplayForms("showEducationForm")}
-                     >
-                        Add
-                     </button>
-                  )}
-                  {displayForms.showEducationForm && (
-                     <EducationInfoForm
-                        handleEducationInfo={handleEducationInfo}
-                        handleDisplayForms={handleDisplayForms}
-                     />
-                  )}
-               </div>
+            {displayCard.showEducationCard && (
+               <EducationCard
+                  isEducationBeingEdited={isEditing.educationSection}
+                  handleEditEducation={handleEditEducation}
+                  handleDisplayEditForm={handleDisplayEditForm}
+                  editedInfo={editedInfo.educationInfo}
+                  educationInfo={educationInfo}
+                  handleRemoveEducation={handleRemoveEducation}
+                  handleInfoBeingEdited={handleInfoBeingEdited}
+                  showEducationForm={displayForms.showEducationForm}
+                  handleEducationInfo={handleEducationInfo}
+                  handleDisplayForms={handleDisplayForms}
+               />
             )}
          </div>
          <div className="form-section-container">
             <button
                className="display-current-info-btn"
-               onClick={() => handleDisplayInfo("showExperienceList")}
+               onClick={() => handleDisplayCard("showExperienceCard")}
             >
                Experience:
             </button>
-            {displayInfo.showExperienceList && (
+            {displayCard.showExperienceCard && (
                <div className="experience-card content-card">
                   {isEditing.experienceSection && (
                      <EditExperienceForm
@@ -191,7 +170,7 @@ export default function ResumeForms({
                            experienceInfo={experienceInfo}
                            handleRemoveExperience={handleRemoveExperience}
                            handleDisplayEditForm={handleDisplayEditForm}
-                           setInfoBeingEdited={setInfoBeingEdited}
+                           handleInfoBeingEdited={handleInfoBeingEdited}
                         />
                      )}
                   <button
