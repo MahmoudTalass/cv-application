@@ -47,7 +47,7 @@ export default function ExperienceDataForm({
                   name="start-date"
                   id="start-date"
                   maxLength={7}
-                  placeholder="MM/YYYY"
+                  placeholder="MM YYYY"
                   onChange={(e) => handleChange(e, "startDate")}
                />
             </div>
@@ -58,7 +58,7 @@ export default function ExperienceDataForm({
                   name="end-date"
                   id="end-date"
                   maxLength={7}
-                  placeholder="MM/YYYY"
+                  placeholder="MM YYYY"
                   onChange={(e) => handleChange(e, "endDate")}
                />
             </div>
