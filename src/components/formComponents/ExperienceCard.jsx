@@ -8,7 +8,6 @@ export default function ExperienceCard({
    handleEditExperience,
    experienceInfo,
    handleRemoveExperience,
-   showExperienceForm,
    handleExperienceInfo,
 }) {
    const [isEditing, setIsEditing] = useState(false);
@@ -44,18 +43,20 @@ export default function ExperienceCard({
                handleDataBeingEdited={handleDataBeingEdited}
             />
          )}
-         {showExperienceForm && (
+         {displayAddForm && (
             <ExperienceInfoForm
                handleExperienceInfo={handleExperienceInfo}
                handleDisplayAddForm={handleDisplayAddForm}
             />
          )}
-         <button
-            className="add-experience-btn add-btn"
-            onClick={() => handleDisplayAddForm()}
-         >
-            Add
-         </button>
+         {!displayAddForm && !isEditing && (
+            <button
+               className="add-experience-btn add-btn"
+               onClick={() => handleDisplayAddForm()}
+            >
+               Add
+            </button>
+         )}
       </div>
    );
 }
