@@ -33,7 +33,7 @@
 }
 
 .print-cv-btn {
-   align-self: flex-start;
+   align-self: center;
    padding: 1rem 2rem;
    background-color: transparent;
    border-radius: 0.5rem;
