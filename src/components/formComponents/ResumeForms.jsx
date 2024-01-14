@@ -31,8 +31,15 @@ export default function ResumeForms({
       });
    }
 
+   function print() {
+      window.print();
+   }
+
    return (
       <section className="forms-container">
+         <button onClick={print} className="print-cv-btn">
+            Print your CV
+         </button>
          <div className="form-section-container">
             <button
                className="display-current-data-btn"

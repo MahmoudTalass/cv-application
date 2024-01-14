@@ -95,17 +95,10 @@ export default function App() {
       );
    }
 
-   function print() {
-      window.print();
-   }
-
    return (
       <div className="page-container">
          <Header />
          <main className="main-content">
-            <button onClick={print} className="print-cv-btn">
-               Print your CV
-            </button>
             <ResumeForms
                handlePersonalData={handlePersonalData}
                handleEducationData={handleEducationData}
