@@ -6,10 +6,10 @@ import { useState } from "react";
 
 export default function App() {
    const [personalData, setPersonalData] = useState({
-      name: "Mahmoud",
-      email: "mahmoud@gmail.com",
+      name: "Name",
+      email: "example@gmail.com",
       phoneNumber: "555 555-5555",
-      location: "College Park, MD",
+      location: "city, state",
       id: crypto.randomUUID(),
    });
    const [educationData, setEducationData] = useState([
