@@ -6,23 +6,31 @@ export default function EducationList({
    handleDataBeingEdited,
 }) {
    return (
-      <ul className="education-list">
+      <ul className="data-in-card-list">
          {educationData.map((data) => {
             return (
-               <li key={data.id} className="education-data-display">
-                  <p>{data.degree}</p>
-                  <p>{data.school}</p>
-                  <button onClick={() => handleRemoveEducation(data.id)}>
-                     X
-                  </button>
-                  <button
-                     onClick={() => {
-                        handleEditingStatus();
-                        handleDataBeingEdited(data);
-                     }}
-                  >
-                     Edit
-                  </button>
+               <li key={data.id} className="data-in-card">
+                  <div className="card-data-text">
+                     <p>{data.degree}</p>
+                     <p>{data.school}</p>
+                  </div>
+                  <div className="card-data-control-btns">
+                     <button
+                        className="remove-data-btn card-data-control-btn"
+                        onClick={() => handleRemoveEducation(data.id)}
+                     >
+                        Remove
+                     </button>
+                     <button
+                        className="edit-data-btn card-data-control-btn"
+                        onClick={() => {
+                           handleEditingStatus();
+                           handleDataBeingEdited(data);
+                        }}
+                     >
+                        Edit
+                     </button>
+                  </div>
                </li>
             );
          })}

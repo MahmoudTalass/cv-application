@@ -34,6 +34,7 @@ export default function PersonalDataCard({ personalData, handlePersonalData }) {
             <div className="personal-data-display">
                <p>{personalData.name}</p>
                <button
+                  className="card-data-control-btn"
                   onClick={() => {
                      handleEditingStatus();
                   }}

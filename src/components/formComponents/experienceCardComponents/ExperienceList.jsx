@@ -6,23 +6,32 @@ export default function ExperienceList({
    handleDataBeingEdited,
 }) {
    return (
-      <ul className="experiences-list">
+      <ul className="data-in-card-list">
          {experienceData.map((data) => {
             return (
-               <li key={data.id} className="education-data-display">
-                  <p>{data.position}</p>
-                  <p>{data.company}</p>
-                  <button onClick={() => handleRemoveExperience(data.id)}>
-                     X
-                  </button>
-                  <button
-                     onClick={() => {
-                        handleEditingStatus();
-                        handleDataBeingEdited(data);
-                     }}
-                  >
-                     Edit
-                  </button>
+               <li key={data.id} className="data-in-card">
+                  <div className="card-data-text">
+                     <p>{data.position}</p>
+                     <p>{data.company}</p>
+                  </div>
+
+                  <div className="card-data-control-btns">
+                     <button
+                        className="remove-data-btn card-data-control-btn"
+                        onClick={() => handleRemoveExperience(data.id)}
+                     >
+                        Remove
+                     </button>
+                     <button
+                        className="edit-data-btn card-data-control-btn"
+                        onClick={() => {
+                           handleEditingStatus();
+                           handleDataBeingEdited(data);
+                        }}
+                     >
+                        Edit
+                     </button>
+                  </div>
                </li>
             );
          })}
