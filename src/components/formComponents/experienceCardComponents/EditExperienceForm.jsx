@@ -49,7 +49,7 @@ export default function ExperienceDataForm({
                   name="start-date"
                   id="start-date"
                   maxLength={7}
-                  placeholder="MM YYYY"
+                  placeholder="MM/YYYY"
                   value={currentData.startDate || ""}
                   onChange={(e) => handleChange(e, "startDate")}
                />
@@ -61,7 +61,7 @@ export default function ExperienceDataForm({
                   name="end-date"
                   id="end-date"
                   maxLength={7}
-                  placeholder="MM YYYY"
+                  placeholder="MM/YYYY"
                   value={currentData.endDate || ""}
                   onChange={(e) => handleChange(e, "endDate")}
                />

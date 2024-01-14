@@ -72,7 +72,7 @@ export default function EditEducationForm({
                name="graduation-date"
                id="graduation-date"
                maxLength={7}
-               placeholder="MM YYYY"
+               placeholder="MM/YYYY"
                required
                value={currentData.graduationDate}
                onChange={(e) => handleChange(e, ["graduationDate"])}
