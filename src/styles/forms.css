@@ -121,7 +121,7 @@
    align-self: center;
    padding: 1rem 2rem;
    background-color: transparent;
-   border-radius: 0.5rem;
+   border-radius: 5px;
    border: 1px solid #001f3f;
 }
 
