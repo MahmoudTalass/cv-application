@@ -82,7 +82,8 @@
 @media print {
    .header,
    .footer,
-   .forms-container {
+   .forms-container,
+   .print-cv-btn {
       display: none;
    }
 
