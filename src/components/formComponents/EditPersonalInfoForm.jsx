@@ -3,10 +3,10 @@ import { useState } from "react";
 
 export default function EditPersonalInfoForm({
    handlePersonalInfo,
-   editedPersonalInfo,
-   handleDisplayEditForm,
+   dataBeingEdited,
+   handleEditingStatus,
 }) {
-   const [currentInfo, setCurrentInfo] = useState(editedPersonalInfo);
+   const [currentInfo, setCurrentInfo] = useState(dataBeingEdited);
 
    function handleChange(e, key) {
       setCurrentInfo({ ...currentInfo, [key]: e.target.value });
@@ -18,7 +18,7 @@ export default function EditPersonalInfoForm({
          onSubmit={(e) => {
             e.preventDefault();
             handlePersonalInfo(currentInfo);
-            handleDisplayEditForm("personalInfoSection");
+            handleEditingStatus();
          }}
       >
          <div className="input-container">

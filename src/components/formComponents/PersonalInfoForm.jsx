@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function PersonalInfoForm({
    handlePersonalInfo,
-   handleFirstPersonalInfoForm,
+   handleDisplayInitialForm,
 }) {
    const [currentInfo, setCurrentInfo] = useState({});
 
@@ -17,7 +17,7 @@ export default function PersonalInfoForm({
          onSubmit={(e) => {
             e.preventDefault();
             handlePersonalInfo(currentInfo);
-            handleFirstPersonalInfoForm();
+            handleDisplayInitialForm();
          }}
       >
          <div className="input-container">
