@@ -12,7 +12,7 @@ export default function EducationDataForm({
 
    return (
       <form
-         className="personalDataForm form"
+         className="education-data-form form"
          onSubmit={(e) => {
             e.preventDefault();
             currentData.id = crypto.randomUUID();
@@ -72,7 +72,9 @@ export default function EducationDataForm({
                onChange={(e) => handleChange(e, ["graduationDate"])}
             />
          </div>
-         <button type="submit">Submit</button>
+         <button type="submit" className="form-btn">
+            Submit
+         </button>
       </form>
    );
 }

@@ -14,7 +14,7 @@ export default function EditPersonalDataForm({
 
    return (
       <form
-         className="personalDataForm form"
+         className="personal-data-form form"
          onSubmit={(e) => {
             e.preventDefault();
             handlePersonalData(currentData);
@@ -22,7 +22,7 @@ export default function EditPersonalDataForm({
          }}
       >
          <div className="input-container">
-            <label htmlFor="">Name:</label>
+            <label htmlFor="name">Name:</label>
             <input
                type="text"
                name="name"
@@ -66,7 +66,9 @@ export default function EditPersonalDataForm({
                onChange={(e) => handleChange(e, ["location"])}
             />
          </div>
-         <button type="submit">Submit</button>
+         <button type="submit" className="form-btn">
+            Submit
+         </button>
       </form>
    );
 }

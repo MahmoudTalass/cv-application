@@ -14,7 +14,7 @@ export default function EditEducationForm({
 
    return (
       <form
-         className="personalDataForm form"
+         className="education-data-form form"
          onSubmit={(e) => {
             e.preventDefault();
             handleEditingStatus();
@@ -78,7 +78,9 @@ export default function EditEducationForm({
                onChange={(e) => handleChange(e, ["graduationDate"])}
             />
          </div>
-         <button type="submit">Edit</button>
+         <button type="submit" className="form-btn">
+            Edit
+         </button>
       </form>
    );
 }

@@ -14,7 +14,7 @@ export default function ExperienceDataForm({
 
    return (
       <form
-         className="experienceDataForm form"
+         className="experience-data-form form"
          onSubmit={(e) => {
             e.preventDefault();
             handleEditingStatus();
@@ -79,7 +79,9 @@ export default function ExperienceDataForm({
             ></textarea>
          </div>
 
-         <button type="submit">Edit</button>
+         <button type="submit" className="form-btn">
+            Edit
+         </button>
       </form>
    );
 }

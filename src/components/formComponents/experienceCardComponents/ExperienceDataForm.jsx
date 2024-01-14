@@ -13,7 +13,7 @@ export default function ExperienceDataForm({
 
    return (
       <form
-         className="experienceDataForm form"
+         className="experience-data-form form"
          onSubmit={(e) => {
             e.preventDefault();
             currentData.id = crypto.randomUUID;
@@ -74,7 +74,9 @@ export default function ExperienceDataForm({
             ></textarea>
          </div>
 
-         <button type="submit">Submit</button>
+         <button type="submit" className="form-btn">
+            Submit
+         </button>
       </form>
    );
 }
