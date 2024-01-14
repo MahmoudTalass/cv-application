@@ -1,8 +1,8 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import EducationCard from "./EducationCard";
-import ExperienceCard from "./ExperienceCard";
-import PersonalDataCard from "./PersonalDataCard";
+import EducationCard from "./educationCardComponents/EducationCard";
+import ExperienceCard from "./experienceCardComponents/ExperienceCard";
+import PersonalDataCard from "./personalCardComponents/PersonalDataCard";
 
 export default function ResumeForms({
    handlePersonalData,
