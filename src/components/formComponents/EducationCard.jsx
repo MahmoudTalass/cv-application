@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import EditEducationForm from "./EditEducationForm";
 import EducationList from "./EducationList";
-import EducationInfoForm from "./EducationInfoForm";
+import EducationDataForm from "./EducationDataForm";
 import { useState } from "react";
 
 export default function EducationCard({
    handleEditEducation,
-   educationInfo,
+   educationData,
    handleRemoveEducation,
-   handleEducationInfo,
+   handleEducationData,
 }) {
    const [isEditing, setIsEditing] = useState(false);
    const [dataBeingEdited, setDataBeingEdited] = useState();
@@ -37,14 +37,14 @@ export default function EducationCard({
             )}
 
             {displayAddForm && (
-               <EducationInfoForm
-                  handleEducationInfo={handleEducationInfo}
+               <EducationDataForm
+                  handleEducationData={handleEducationData}
                   handleDisplayAddForm={handleDisplayAddForm}
                />
             )}
-            {educationInfo.length > 0 && !isEditing && (
+            {educationData.length > 0 && !isEditing && (
                <EducationList
-                  educationInfo={educationInfo}
+                  educationData={educationData}
                   handleRemoveEducation={handleRemoveEducation}
                   handleEditingStatus={handleEditingStatus}
                   handleDataBeingEdited={handleDataBeingEdited}

@@ -1,15 +1,15 @@
 /* eslint-disable react/prop-types */
 export default function ExperienceList({
-   experienceInfo,
+   experienceData,
    handleRemoveExperience,
    handleEditingStatus,
    handleDataBeingEdited,
 }) {
    return (
       <ul className="experiences-list">
-         {experienceInfo.map((data) => {
+         {experienceData.map((data) => {
             return (
-               <li key={data.id} className="education-info-display">
+               <li key={data.id} className="education-data-display">
                   <p>{data.position}</p>
                   <p>{data.company}</p>
                   <button onClick={() => handleRemoveExperience(data.id)}>

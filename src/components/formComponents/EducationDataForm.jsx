@@ -1,22 +1,22 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-export default function EducationInfoForm({
-   handleEducationInfo,
+export default function EducationDataForm({
+   handleEducationData,
    handleDisplayAddForm,
 }) {
-   const [currentInfo, setCurrentInfo] = useState({});
+   const [currentData, setCurrentData] = useState({});
 
    function handleChange(e, key) {
-      setCurrentInfo({ ...currentInfo, [key]: e.target.value });
+      setCurrentData({ ...currentData, [key]: e.target.value });
    }
 
    return (
       <form
-         className="personalInfoForm form"
+         className="personalDataForm form"
          onSubmit={(e) => {
             e.preventDefault();
-            currentInfo.id = crypto.randomUUID();
-            handleEducationInfo(currentInfo);
+            currentData.id = crypto.randomUUID();
+            handleEducationData(currentData);
             handleDisplayAddForm();
          }}
       >

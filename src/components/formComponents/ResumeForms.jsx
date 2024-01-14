@@ -5,18 +5,18 @@ import ExperienceCard from "./ExperienceCard";
 import PersonalDataCard from "./PersonalDataCard";
 
 export default function ResumeForms({
-   handlePersonalInfo,
-   handleEducationInfo,
-   handleExperienceInfo,
-   personalInfo,
-   educationInfo,
-   experienceInfo,
+   handlePersonalData,
+   handleEducationData,
+   handleExperienceData,
+   personalData,
+   educationData,
+   experienceData,
    handleRemoveEducation,
    handleRemoveExperience,
    handleEditEducation,
    handleEditExperience,
 }) {
-   // This state controls if the information included in a resume section show up and are opened
+   // This state controls if the Datarmation included in a resume section show up and are opened
    const [displayCard, setDisplayCard] = useState({
       showPersonalCard: true,
       showEducationCard: false,
@@ -35,7 +35,7 @@ export default function ResumeForms({
       <section className="forms-container">
          <div className="form-section-container">
             <button
-               className="display-current-info-btn"
+               className="display-current-data-btn"
                onClick={() => handleDisplayCard("showPersonalCard")}
             >
                Personal Details:
@@ -43,14 +43,14 @@ export default function ResumeForms({
 
             {displayCard.showPersonalCard && (
                <PersonalDataCard
-                  personalInfo={personalInfo}
-                  handlePersonalInfo={handlePersonalInfo}
+                  personalData={personalData}
+                  handlePersonalData={handlePersonalData}
                />
             )}
          </div>
          <div className="form-section-container">
             <button
-               className="display-current-info-btn"
+               className="display-current-data-btn"
                onClick={() => handleDisplayCard("showEducationCard")}
             >
                Education:
@@ -59,15 +59,15 @@ export default function ResumeForms({
             {displayCard.showEducationCard && (
                <EducationCard
                   handleEditEducation={handleEditEducation}
-                  educationInfo={educationInfo}
+                  educationData={educationData}
                   handleRemoveEducation={handleRemoveEducation}
-                  handleEducationInfo={handleEducationInfo}
+                  handleEducationData={handleEducationData}
                />
             )}
          </div>
          <div className="form-section-container">
             <button
-               className="display-current-info-btn"
+               className="display-current-data-btn"
                onClick={() => handleDisplayCard("showExperienceCard")}
             >
                Experience:
@@ -75,9 +75,9 @@ export default function ResumeForms({
             {displayCard.showExperienceCard && (
                <ExperienceCard
                   handleEditExperience={handleEditExperience}
-                  experienceInfo={experienceInfo}
+                  experienceData={experienceData}
                   handleRemoveExperience={handleRemoveExperience}
-                  handleExperienceInfo={handleExperienceInfo}
+                  handleExperienceData={handleExperienceData}
                />
             )}
          </div>

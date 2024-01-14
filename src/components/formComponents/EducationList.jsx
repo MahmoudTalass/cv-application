@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
 export default function EducationList({
-   educationInfo,
+   educationData,
    handleRemoveEducation,
    handleEditingStatus,
    handleDataBeingEdited,
 }) {
    return (
       <ul className="education-list">
-         {educationInfo.map((info) => {
+         {educationData.map((data) => {
             return (
-               <li key={info.id} className="education-info-display">
-                  <p>{info.degree}</p>
-                  <p>{info.school}</p>
-                  <button onClick={() => handleRemoveEducation(info.id)}>
+               <li key={data.id} className="education-data-display">
+                  <p>{data.degree}</p>
+                  <p>{data.school}</p>
+                  <button onClick={() => handleRemoveEducation(data.id)}>
                      X
                   </button>
                   <button
                      onClick={() => {
                         handleEditingStatus();
-                        handleDataBeingEdited(info);
+                        handleDataBeingEdited(data);
                      }}
                   >
                      Edit

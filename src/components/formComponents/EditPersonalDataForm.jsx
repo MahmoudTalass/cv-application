@@ -1,23 +1,24 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export default function PersonalInfoForm({
-   handlePersonalInfo,
-   handleDisplayInitialForm,
+export default function EditPersonalDataForm({
+   handlePersonalData,
+   dataBeingEdited,
+   handleEditingStatus,
 }) {
-   const [currentInfo, setCurrentInfo] = useState({});
+   const [currentData, setCurrentData] = useState(dataBeingEdited);
 
    function handleChange(e, key) {
-      setCurrentInfo({ ...currentInfo, [key]: e.target.value });
+      setCurrentData({ ...currentData, [key]: e.target.value });
    }
 
    return (
       <form
-         className="personalInfoForm form"
+         className="personalDataForm form"
          onSubmit={(e) => {
             e.preventDefault();
-            handlePersonalInfo(currentInfo);
-            handleDisplayInitialForm();
+            handlePersonalData(currentData);
+            handleEditingStatus();
          }}
       >
          <div className="input-container">
@@ -27,7 +28,7 @@ export default function PersonalInfoForm({
                name="name"
                id="name"
                required
-               value={currentInfo.name || ""}
+               value={currentData.name || ""}
                onChange={(e) => handleChange(e, ["name"])}
             />
          </div>
@@ -38,7 +39,7 @@ export default function PersonalInfoForm({
                name="email"
                id="email"
                required
-               value={currentInfo.email || ""}
+               value={currentData.email || ""}
                onChange={(e) => handleChange(e, ["email"])}
             />
          </div>
@@ -49,7 +50,7 @@ export default function PersonalInfoForm({
                name="phone-number"
                id="phone-number"
                required
-               value={currentInfo.phoneNumber || ""}
+               value={currentData.phoneNumber || ""}
                onChange={(e) => handleChange(e, ["phoneNumber"])}
             />
          </div>
@@ -61,7 +62,7 @@ export default function PersonalInfoForm({
                id="location"
                placeholder="city, state"
                required
-               value={currentInfo.location || ""}
+               value={currentData.location || ""}
                onChange={(e) => handleChange(e, ["location"])}
             />
          </div>

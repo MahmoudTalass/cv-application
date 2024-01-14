@@ -6,19 +6,19 @@ export default function EditEducationForm({
    dataBeingEdited,
    handleEditEducation,
 }) {
-   const [currentInfo, setCurrentInfo] = useState(dataBeingEdited);
+   const [currentData, setCurrentData] = useState(dataBeingEdited);
 
    function handleChange(e, key) {
-      setCurrentInfo({ ...currentInfo, [key]: e.target.value });
+      setCurrentData({ ...currentData, [key]: e.target.value });
    }
 
    return (
       <form
-         className="personalInfoForm form"
+         className="personalDataForm form"
          onSubmit={(e) => {
             e.preventDefault();
             handleEditingStatus();
-            handleEditEducation(currentInfo);
+            handleEditEducation(currentData);
          }}
       >
          <div className="input-container">
@@ -28,7 +28,7 @@ export default function EditEducationForm({
                name="degree"
                id="degree"
                required
-               value={currentInfo.degree}
+               value={currentData.degree}
                onChange={(e) => handleChange(e, ["degree"])}
             />
          </div>
@@ -39,7 +39,7 @@ export default function EditEducationForm({
                name="school"
                id="school"
                required
-               value={currentInfo.school}
+               value={currentData.school}
                onChange={(e) => handleChange(e, ["school"])}
             />
          </div>
@@ -50,7 +50,7 @@ export default function EditEducationForm({
                name="city"
                id="city"
                required
-               value={currentInfo.city}
+               value={currentData.city}
                onChange={(e) => handleChange(e, ["city"])}
             />
          </div>
@@ -61,7 +61,7 @@ export default function EditEducationForm({
                name="state"
                id="state"
                required
-               value={currentInfo.state}
+               value={currentData.state}
                onChange={(e) => handleChange(e, ["state"])}
             />
          </div>
@@ -74,7 +74,7 @@ export default function EditEducationForm({
                maxLength={7}
                placeholder="MM/YYYY"
                required
-               value={currentInfo.graduationDate}
+               value={currentData.graduationDate}
                onChange={(e) => handleChange(e, ["graduationDate"])}
             />
          </div>

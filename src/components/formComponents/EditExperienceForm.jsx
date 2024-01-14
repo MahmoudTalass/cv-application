@@ -1,24 +1,24 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 
-export default function ExperienceInfoForm({
+export default function ExperienceDataForm({
    handleEditExperience,
    dataBeingEdited,
    handleEditingStatus,
 }) {
-   const [currentInfo, setCurrentInfo] = useState(dataBeingEdited);
+   const [currentData, setCurrentData] = useState(dataBeingEdited);
 
    function handleChange(e, key) {
-      setCurrentInfo({ ...currentInfo, [key]: e.target.value });
+      setCurrentData({ ...currentData, [key]: e.target.value });
    }
 
    return (
       <form
-         className="experienceInfoForm form"
+         className="experienceDataForm form"
          onSubmit={(e) => {
             e.preventDefault();
             handleEditingStatus();
-            handleEditExperience(currentInfo);
+            handleEditExperience(currentData);
          }}
       >
          <div className="input-container">
@@ -27,7 +27,7 @@ export default function ExperienceInfoForm({
                type="text"
                name="company"
                id="company"
-               value={currentInfo.company || ""}
+               value={currentData.company || ""}
                onChange={(e) => handleChange(e, "company")}
             />
          </div>
@@ -37,7 +37,7 @@ export default function ExperienceInfoForm({
                type="text"
                name="position-title"
                id="position-title"
-               value={currentInfo.position || ""}
+               value={currentData.position || ""}
                onChange={(e) => handleChange(e, "position")}
             />
          </div>
@@ -50,7 +50,7 @@ export default function ExperienceInfoForm({
                   id="start-date"
                   maxLength={7}
                   placeholder="MM/YYYY"
-                  value={currentInfo.startDate || ""}
+                  value={currentData.startDate || ""}
                   onChange={(e) => handleChange(e, "startDate")}
                />
             </div>
@@ -62,7 +62,7 @@ export default function ExperienceInfoForm({
                   id="end-date"
                   maxLength={7}
                   placeholder="MM/YYYY"
-                  value={currentInfo.endDate || ""}
+                  value={currentData.endDate || ""}
                   onChange={(e) => handleChange(e, "endDate")}
                />
             </div>
@@ -74,7 +74,7 @@ export default function ExperienceInfoForm({
                id="description"
                cols="30"
                rows="10"
-               value={currentInfo.description || ""}
+               value={currentData.description || ""}
                onChange={(e) => handleChange(e, "description")}
             ></textarea>
          </div>

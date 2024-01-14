@@ -1,18 +1,18 @@
 /* eslint-disable react/prop-types */
-import EducationInfo from "./EducationInfo";
-import ExperienceInfo from "./ExperienceInfo";
-import PersonalInfo from "./PersonalInfo";
+import EducationData from "./EducationData";
+import ExperienceData from "./ExperienceData";
+import PersonalData from "./PersonalData";
 
 export default function Resume({
-   personalInfo,
-   educationInfo,
-   experienceInfo,
+   personalData,
+   educationData,
+   experienceData,
 }) {
    return (
       <section className="resume-container">
-         <PersonalInfo personalInfo={personalInfo} />
-         <EducationInfo educationInfo={educationInfo} />
-         <ExperienceInfo experienceInfo={experienceInfo} />
+         <PersonalData personalData={personalData} />
+         <EducationData educationData={educationData} />
+         <ExperienceData experienceData={experienceData} />
       </section>
    );
 }

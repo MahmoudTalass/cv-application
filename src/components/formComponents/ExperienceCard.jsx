@@ -1,14 +1,14 @@
 /* eslint-disable react/prop-types */
 import EditExperienceForm from "./EditExperienceForm";
 import ExperienceList from "./ExperienceList";
-import ExperienceInfoForm from "./ExperienceInfoForm";
+import ExperienceDataForm from "./ExperienceDataForm";
 import { useState } from "react";
 
 export default function ExperienceCard({
    handleEditExperience,
-   experienceInfo,
+   experienceData,
    handleRemoveExperience,
-   handleExperienceInfo,
+   handleExperienceData,
 }) {
    const [isEditing, setIsEditing] = useState(false);
    const [dataBeingEdited, setDataBeingEdited] = useState();
@@ -35,17 +35,17 @@ export default function ExperienceCard({
                dataBeingEdited={dataBeingEdited}
             />
          )}
-         {experienceInfo.length > 0 && !isEditing && (
+         {experienceData.length > 0 && !isEditing && (
             <ExperienceList
-               experienceInfo={experienceInfo}
+               experienceData={experienceData}
                handleRemoveExperience={handleRemoveExperience}
                handleEditingStatus={handleEditingStatus}
                handleDataBeingEdited={handleDataBeingEdited}
             />
          )}
          {displayAddForm && (
-            <ExperienceInfoForm
-               handleExperienceInfo={handleExperienceInfo}
+            <ExperienceDataForm
+               handleExperienceData={handleExperienceData}
                handleDisplayAddForm={handleDisplayAddForm}
             />
          )}

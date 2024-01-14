@@ -5,14 +5,14 @@ import Resume from "./components/resumeComponents/Resume";
 import { useState } from "react";
 
 export default function App() {
-   const [personalInfo, setPersonalInfo] = useState({
+   const [personalData, setPersonalData] = useState({
       name: "Mahmoud",
       email: "mahmoud@gmail.com",
       phoneNumber: "555 555-5555",
       location: "College Park, MD",
       id: crypto.randomUUID(),
    });
-   const [educationInfo, setEducationInfo] = useState([
+   const [educationData, setEducationData] = useState([
       {
          school: "University of Maryland",
          degree: "Computer Science",
@@ -30,7 +30,7 @@ export default function App() {
          id: crypto.randomUUID(),
       },
    ]);
-   const [experienceInfo, setExperienceInfo] = useState([
+   const [experienceData, setExperienceData] = useState([
       {
          company: "google",
          position: "Front-end engineer",
@@ -51,29 +51,29 @@ export default function App() {
       },
    ]);
 
-   function handlePersonalInfo(info) {
-      setPersonalInfo({ ...info });
+   function handlePersonalData(data) {
+      setPersonalData({ ...data });
    }
 
-   function handleEducationInfo(info) {
-      setEducationInfo([...educationInfo, { ...info }]);
+   function handleEducationData(data) {
+      setEducationData([...educationData, { ...data }]);
    }
 
-   function handleExperienceInfo(info) {
-      setExperienceInfo([...experienceInfo, { ...info }]);
+   function handleExperienceData(data) {
+      setExperienceData([...experienceData, { ...data }]);
    }
 
    function handleRemoveEducation(id) {
-      setEducationInfo(educationInfo.filter((info) => info.id !== id));
+      setEducationData(educationData.filter((data) => data.id !== id));
    }
 
    function handleRemoveExperience(id) {
-      setExperienceInfo(experienceInfo.filter((info) => info.id !== id));
+      setExperienceData(experienceData.filter((data) => data.id !== id));
    }
 
    function handleEditEducation(editedData) {
-      setEducationInfo(
-         educationInfo.map((data) => {
+      setEducationData(
+         educationData.map((data) => {
             if (data.id === editedData.id) {
                return editedData;
             } else {
@@ -84,8 +84,8 @@ export default function App() {
    }
 
    function handleEditExperience(editedData) {
-      setExperienceInfo(
-         experienceInfo.map((data) => {
+      setExperienceData(
+         experienceData.map((data) => {
             if (data.id === editedData.id) {
                return editedData;
             } else {
@@ -100,21 +100,21 @@ export default function App() {
          <Header />
          <main className="main-content">
             <ResumeForms
-               handlePersonalInfo={handlePersonalInfo}
-               handleEducationInfo={handleEducationInfo}
-               handleExperienceInfo={handleExperienceInfo}
-               educationInfo={educationInfo}
-               experienceInfo={experienceInfo}
-               personalInfo={personalInfo}
+               handlePersonalData={handlePersonalData}
+               handleEducationData={handleEducationData}
+               handleExperienceData={handleExperienceData}
+               educationData={educationData}
+               experienceData={experienceData}
+               personalData={personalData}
                handleRemoveEducation={handleRemoveEducation}
                handleRemoveExperience={handleRemoveExperience}
                handleEditEducation={handleEditEducation}
                handleEditExperience={handleEditExperience}
             />
             <Resume
-               personalInfo={personalInfo}
-               educationInfo={educationInfo}
-               experienceInfo={experienceInfo}
+               personalData={personalData}
+               educationData={educationData}
+               experienceData={experienceData}
             />
          </main>
          <Footer />

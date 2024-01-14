@@ -1,9 +1,9 @@
 /* eslint-disable react/prop-types */
-import EditPersonalInfoForm from "./EditPersonalInfoForm";
-import PersonalInfoForm from "./PersonalInfoForm";
+import EditPersonalDataForm from "./EditPersonalDataForm";
+import PersonalDataForm from "./PersonalDataForm";
 import { useState } from "react";
 
-export default function PersonalDataCard({ personalInfo, handlePersonalInfo }) {
+export default function PersonalDataCard({ personalData, handlePersonalData }) {
    const [isEditing, setIsEditing] = useState(false);
    const [displayInitialForm, setDisplayInitialForm] = useState(false);
 
@@ -17,22 +17,22 @@ export default function PersonalDataCard({ personalInfo, handlePersonalInfo }) {
    return (
       <div className="personal-content-card content-card">
          {isEditing && (
-            <EditPersonalInfoForm
-               handlePersonalInfo={handlePersonalInfo}
+            <EditPersonalDataForm
+               handlePersonalData={handlePersonalData}
                handleEditingStatus={handleEditingStatus}
-               dataBeingEdited={personalInfo}
+               dataBeingEdited={personalData}
             />
          )}
          {!displayInitialForm && (
-            <PersonalInfoForm
-               handlePersonalInfo={handlePersonalInfo}
+            <PersonalDataForm
+               handlePersonalData={handlePersonalData}
                handleDisplayInitialForm={handleDisplayInitialForm}
             />
          )}
 
          {displayInitialForm && (
-            <div className="personal-info-display">
-               <p>{personalInfo.name}</p>
+            <div className="personal-data-display">
+               <p>{personalData.name}</p>
                <button
                   onClick={() => {
                      handleEditingStatus();
