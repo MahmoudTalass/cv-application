@@ -2,11 +2,11 @@
 import { useState } from "react";
 
 export default function EditEducationForm({
-   handleDisplayEditForm,
-   editedEducation,
+   handleEditingStatus,
+   dataBeingEdited,
    handleEditEducation,
 }) {
-   const [currentInfo, setCurrentInfo] = useState(editedEducation);
+   const [currentInfo, setCurrentInfo] = useState(dataBeingEdited);
 
    function handleChange(e, key) {
       setCurrentInfo({ ...currentInfo, [key]: e.target.value });
@@ -17,7 +17,7 @@ export default function EditEducationForm({
          className="personalInfoForm form"
          onSubmit={(e) => {
             e.preventDefault();
-            handleDisplayEditForm("educationSection");
+            handleEditingStatus();
             handleEditEducation(currentInfo);
          }}
       >
@@ -78,7 +78,7 @@ export default function EditEducationForm({
                onChange={(e) => handleChange(e, ["graduationDate"])}
             />
          </div>
-         <button type="submit">Submit</button>
+         <button type="submit">Edit</button>
       </form>
    );
 }

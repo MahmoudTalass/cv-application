@@ -2,8 +2,8 @@
 export default function EducationList({
    educationInfo,
    handleRemoveEducation,
-   handleDisplayEditForm,
-   handleInfoBeingEdited,
+   handleEditingStatus,
+   handleDataBeingEdited,
 }) {
    return (
       <ul className="education-list">
@@ -17,8 +17,8 @@ export default function EducationList({
                   </button>
                   <button
                      onClick={() => {
-                        handleDisplayEditForm("educationSection");
-                        handleInfoBeingEdited(info, "educationInfo");
+                        handleEditingStatus();
+                        handleDataBeingEdited(info);
                      }}
                   >
                      Edit

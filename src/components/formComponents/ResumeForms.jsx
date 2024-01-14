@@ -132,16 +132,10 @@ export default function ResumeForms({
 
             {displayCard.showEducationCard && (
                <EducationCard
-                  isEducationBeingEdited={isEditing.educationSection}
                   handleEditEducation={handleEditEducation}
-                  handleDisplayEditForm={handleDisplayEditForm}
-                  editedInfo={editedInfo.educationInfo}
                   educationInfo={educationInfo}
                   handleRemoveEducation={handleRemoveEducation}
-                  handleInfoBeingEdited={handleInfoBeingEdited}
-                  showEducationForm={displayForms.showEducationForm}
                   handleEducationInfo={handleEducationInfo}
-                  handleDisplayForms={handleDisplayForms}
                />
             )}
          </div>

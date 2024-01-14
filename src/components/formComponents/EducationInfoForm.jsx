@@ -2,7 +2,7 @@
 import { useState } from "react";
 export default function EducationInfoForm({
    handleEducationInfo,
-   handleDisplayForms,
+   handleDisplayAddForm,
 }) {
    const [currentInfo, setCurrentInfo] = useState({});
 
@@ -17,7 +17,7 @@ export default function EducationInfoForm({
             e.preventDefault();
             currentInfo.id = crypto.randomUUID();
             handleEducationInfo(currentInfo);
-            handleDisplayForms("showEducationForm");
+            handleDisplayAddForm();
          }}
       >
          <div className="input-container">

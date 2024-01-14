@@ -2,47 +2,58 @@
 import EditEducationForm from "./EditEducationForm";
 import EducationList from "./EducationList";
 import EducationInfoForm from "./EducationInfoForm";
+import { useState } from "react";
 
 export default function EducationCard({
-   isEducationBeingEdited,
    handleEditEducation,
-   handleDisplayEditForm,
-   editedInfo,
    educationInfo,
    handleRemoveEducation,
-   handleInfoBeingEdited,
-   showEducationForm,
    handleEducationInfo,
-   handleDisplayForms,
 }) {
+   const [isEditing, setIsEditing] = useState(false);
+   const [dataBeingEdited, setDataBeingEdited] = useState();
+   const [displayAddForm, setDisplayAddForm] = useState(false);
+
+   function handleEditingStatus() {
+      setIsEditing(!isEditing);
+   }
+
+   function handleDataBeingEdited(data) {
+      setDataBeingEdited(data);
+   }
+
+   function handleDisplayAddForm() {
+      setDisplayAddForm(!displayAddForm);
+   }
    return (
       <>
          <div className="education-content-card content-card">
-            {isEducationBeingEdited && (
+            {isEditing && (
                <EditEducationForm
                   handleEditEducation={handleEditEducation}
-                  editedEducation={editedInfo}
-                  handleDisplayEditForm={handleDisplayEditForm}
+                  handleEditingStatus={handleEditingStatus}
+                  dataBeingEdited={dataBeingEdited}
                />
             )}
-            {educationInfo.length > 0 && !isEducationBeingEdited && (
+
+            {displayAddForm && (
+               <EducationInfoForm
+                  handleEducationInfo={handleEducationInfo}
+                  handleDisplayAddForm={handleDisplayAddForm}
+               />
+            )}
+            {educationInfo.length > 0 && !isEditing && (
                <EducationList
                   educationInfo={educationInfo}
                   handleRemoveEducation={handleRemoveEducation}
-                  handleDisplayEditForm={handleDisplayEditForm}
-                  handleInfoBeingEdited={handleInfoBeingEdited}
+                  handleEditingStatus={handleEditingStatus}
+                  handleDataBeingEdited={handleDataBeingEdited}
                />
             )}
-            {showEducationForm && (
-               <EducationInfoForm
-                  handleEducationInfo={handleEducationInfo}
-                  handleDisplayForms={handleDisplayForms}
-               />
-            )}
-            {!showEducationForm && (
+            {!displayAddForm && !isEditing && (
                <button
                   className="add-education-btn add-btn"
-                  onClick={() => handleDisplayForms("showEducationForm")}
+                  onClick={() => handleDisplayAddForm()}
                >
                   Add
                </button>
