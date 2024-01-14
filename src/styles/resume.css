@@ -1,9 +1,14 @@
 .resume-container {
    max-width: 800px;
    width: 800px;
-   min-height: 1000px;
+   height: 1000px;
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    padding: 3.5rem 3rem;
+   background-color: #fff;
+}
+
+.resume-container * {
+   font-family: "Times New Roman", Times, serif;
 }
 
 .resume-section {
