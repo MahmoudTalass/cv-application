@@ -19,14 +19,9 @@
 .section-heading {
    font-weight: bold;
    font-size: 1.1rem;
-}
-
-.line-break {
-   width: 100%;
-   height: 1px;
-   margin-top: 0.2rem;
-   margin-bottom: 0.2rem;
-   background-color: #737373;
+   padding-bottom: 0.2rem;
+   margin-bottom: 0.4rem;
+   border-bottom: 1px solid #737373;
 }
 
 .personal-data-section {
@@ -82,4 +77,23 @@
 
 .position {
    font-style: italic;
+}
+
+@media print {
+   .header,
+   .footer,
+   .forms-container {
+      display: none;
+   }
+
+   .resume-container {
+      width: 100%;
+      height: fit-content;
+      box-shadow: none;
+      padding: 0;
+   }
+
+   .main-content {
+      margin: 0;
+   }
 }
