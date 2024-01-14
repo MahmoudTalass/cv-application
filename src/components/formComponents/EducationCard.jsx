@@ -33,6 +33,12 @@ export default function EducationCard({
                   handleInfoBeingEdited={handleInfoBeingEdited}
                />
             )}
+            {showEducationForm && (
+               <EducationInfoForm
+                  handleEducationInfo={handleEducationInfo}
+                  handleDisplayForms={handleDisplayForms}
+               />
+            )}
             {!showEducationForm && (
                <button
                   className="add-education-btn add-btn"
@@ -40,12 +46,6 @@ export default function EducationCard({
                >
                   Add
                </button>
-            )}
-            {showEducationForm && (
-               <EducationInfoForm
-                  handleEducationInfo={handleEducationInfo}
-                  handleDisplayForms={handleDisplayForms}
-               />
             )}
          </div>
       </>
