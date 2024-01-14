@@ -35,14 +35,7 @@ export default function EducationCard({
                   dataBeingEdited={dataBeingEdited}
                />
             )}
-
-            {displayAddForm && (
-               <EducationDataForm
-                  handleEducationData={handleEducationData}
-                  handleDisplayAddForm={handleDisplayAddForm}
-               />
-            )}
-            {educationData.length > 0 && !isEditing && (
+            {educationData.length > 0 && !isEditing && !displayAddForm && (
                <EducationList
                   educationData={educationData}
                   handleRemoveEducation={handleRemoveEducation}
@@ -50,6 +43,14 @@ export default function EducationCard({
                   handleDataBeingEdited={handleDataBeingEdited}
                />
             )}
+
+            {displayAddForm && (
+               <EducationDataForm
+                  handleEducationData={handleEducationData}
+                  handleDisplayAddForm={handleDisplayAddForm}
+               />
+            )}
+
             {!displayAddForm && !isEditing && (
                <button
                   className="add-education-btn add-btn"

@@ -35,7 +35,7 @@ export default function ExperienceCard({
                dataBeingEdited={dataBeingEdited}
             />
          )}
-         {experienceData.length > 0 && !isEditing && (
+         {experienceData.length > 0 && !isEditing && !displayAddForm && (
             <ExperienceList
                experienceData={experienceData}
                handleRemoveExperience={handleRemoveExperience}
