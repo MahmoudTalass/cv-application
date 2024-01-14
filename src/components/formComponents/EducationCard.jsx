@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import EditEducationForm from "./EditEducationForm";
 import EducationList from "./EducationList";
 import EducationInfoForm from "./EducationInfoForm";
@@ -14,7 +15,6 @@ export default function EducationCard({
    handleEducationInfo,
    handleDisplayForms,
 }) {
-   debugger;
    return (
       <>
          <div className="education-content-card content-card">
