@@ -6,7 +6,7 @@ export default function EditEducationForm({
    editedEducation,
    handleEditEducation,
 }) {
-   const [currentInfo, setCurrentInfo] = useState({ ...editedEducation });
+   const [currentInfo, setCurrentInfo] = useState(editedEducation);
 
    function handleChange(e, key) {
       setCurrentInfo({ ...currentInfo, [key]: e.target.value });

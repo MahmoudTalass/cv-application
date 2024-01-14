@@ -3,7 +3,7 @@ export default function ExperienceList({
    experienceInfo,
    handleRemoveExperience,
    handleDisplayEditForm,
-   setInfoBeingEdited,
+   handleInfoBeingEdited,
 }) {
    return (
       <ul className="experiences-list">
@@ -18,7 +18,7 @@ export default function ExperienceList({
                   <button
                      onClick={() => {
                         handleDisplayEditForm("experienceSection");
-                        setInfoBeingEdited(info, "experienceInfo");
+                        handleInfoBeingEdited(info, "experienceInfo");
                      }}
                   >
                      Edit
