@@ -35,7 +35,6 @@ export default function ResumeForms({
    const [isEditing, setIsEditing] = useState({
       personalInfoSection: false,
       educationSection: false,
-      experienceSection: false,
    });
 
    // This states holds the object/resume section information that is currenlty being edited so it is
@@ -155,16 +154,10 @@ export default function ResumeForms({
             </button>
             {displayCard.showExperienceCard && (
                <ExperienceCard
-                  isExperienceBeingEdited={isEditing.experienceSection}
                   handleEditExperience={handleEditExperience}
-                  handleDisplayEditForm={handleDisplayEditForm}
-                  editedInfo={editedInfo.experienceInfo}
                   experienceInfo={experienceInfo}
                   handleRemoveExperience={handleRemoveExperience}
-                  handleInfoBeingEdited={handleInfoBeingEdited}
-                  showExperienceForm={displayForms.showExperienceForm}
                   handleExperienceInfo={handleExperienceInfo}
-                  handleDisplayForms={handleDisplayForms}
                />
             )}
          </div>

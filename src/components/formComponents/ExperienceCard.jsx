@@ -2,45 +2,57 @@
 import EditExperienceForm from "./EditExperienceForm";
 import ExperienceList from "./ExperienceList";
 import ExperienceInfoForm from "./ExperienceInfoForm";
+import { useState } from "react";
 
 export default function ExperienceCard({
-   isExperienceBeingEdited,
    handleEditExperience,
-   handleDisplayEditForm,
-   editedInfo,
    experienceInfo,
    handleRemoveExperience,
-   handleInfoBeingEdited,
    showExperienceForm,
    handleExperienceInfo,
-   handleDisplayForms,
 }) {
+   const [isEditing, setIsEditing] = useState(false);
+   const [dataBeingEdited, setDataBeingEdited] = useState();
+   const [displayAddForm, setDisplayAddForm] = useState(false);
+
+   function handleEditingStatus() {
+      setIsEditing(!isEditing);
+   }
+
+   function handleDataBeingEdited(data) {
+      setDataBeingEdited(data);
+   }
+
+   function handleDisplayAddForm() {
+      setDisplayAddForm(!displayAddForm);
+   }
+
    return (
       <div className="experience-card content-card">
-         {isExperienceBeingEdited && (
+         {isEditing && (
             <EditExperienceForm
                handleEditExperience={handleEditExperience}
-               handleDisplayEditForm={handleDisplayEditForm}
-               editedExperience={editedInfo}
+               handleEditingStatus={handleEditingStatus}
+               dataBeingEdited={dataBeingEdited}
             />
          )}
-         {experienceInfo.length > 0 && !isExperienceBeingEdited && (
+         {experienceInfo.length > 0 && !isEditing && (
             <ExperienceList
                experienceInfo={experienceInfo}
                handleRemoveExperience={handleRemoveExperience}
-               handleDisplayEditForm={handleDisplayEditForm}
-               handleInfoBeingEdited={handleInfoBeingEdited}
+               handleEditingStatus={handleEditingStatus}
+               handleDataBeingEdited={handleDataBeingEdited}
             />
          )}
          {showExperienceForm && (
             <ExperienceInfoForm
                handleExperienceInfo={handleExperienceInfo}
-               handleDisplayForms={handleDisplayForms}
+               handleDisplayAddForm={handleDisplayAddForm}
             />
          )}
          <button
             className="add-experience-btn add-btn"
-            onClick={() => handleDisplayForms("showExperienceForm")}
+            onClick={() => handleDisplayAddForm()}
          >
             Add
          </button>

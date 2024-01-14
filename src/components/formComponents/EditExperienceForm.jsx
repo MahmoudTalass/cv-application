@@ -3,10 +3,10 @@ import { useState } from "react";
 
 export default function ExperienceInfoForm({
    handleEditExperience,
-   editedExperience,
-   handleDisplayEditForm,
+   dataBeingEdited,
+   handleEditingStatus,
 }) {
-   const [currentInfo, setCurrentInfo] = useState(editedExperience);
+   const [currentInfo, setCurrentInfo] = useState(dataBeingEdited);
 
    function handleChange(e, key) {
       setCurrentInfo({ ...currentInfo, [key]: e.target.value });
@@ -17,7 +17,7 @@ export default function ExperienceInfoForm({
          className="experienceInfoForm form"
          onSubmit={(e) => {
             e.preventDefault();
-            handleDisplayEditForm("experienceSection");
+            handleEditingStatus();
             handleEditExperience(currentInfo);
          }}
       >

@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function ExperienceInfoForm({
    handleExperienceInfo,
-   handleDisplayForms,
+   handleDisplayAddForm,
 }) {
    const [currentInfo, setCurrentInfo] = useState({});
 
@@ -18,7 +18,7 @@ export default function ExperienceInfoForm({
             e.preventDefault();
             currentInfo.id = crypto.randomUUID;
             handleExperienceInfo(currentInfo);
-            handleDisplayForms("showExperienceForm");
+            handleDisplayAddForm();
          }}
       >
          <div className="input-container">

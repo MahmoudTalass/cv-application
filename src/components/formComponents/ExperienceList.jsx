@@ -2,23 +2,23 @@
 export default function ExperienceList({
    experienceInfo,
    handleRemoveExperience,
-   handleDisplayEditForm,
-   handleInfoBeingEdited,
+   handleEditingStatus,
+   handleDataBeingEdited,
 }) {
    return (
       <ul className="experiences-list">
-         {experienceInfo.map((info) => {
+         {experienceInfo.map((data) => {
             return (
-               <li key={info.id} className="education-info-display">
-                  <p>{info.position}</p>
-                  <p>{info.company}</p>
-                  <button onClick={() => handleRemoveExperience(info.id)}>
+               <li key={data.id} className="education-info-display">
+                  <p>{data.position}</p>
+                  <p>{data.company}</p>
+                  <button onClick={() => handleRemoveExperience(data.id)}>
                      X
                   </button>
                   <button
                      onClick={() => {
-                        handleDisplayEditForm("experienceSection");
-                        handleInfoBeingEdited(info, "experienceInfo");
+                        handleEditingStatus();
+                        handleDataBeingEdited(data);
                      }}
                   >
                      Edit
