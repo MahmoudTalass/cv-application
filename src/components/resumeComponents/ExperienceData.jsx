@@ -3,7 +3,6 @@ export default function ExperienceData({ experienceData }) {
    return (
       <div className="experience-data-section resume-section">
          <p className="section-heading">EXPERIENCE</p>
-         <div className="line-break"></div>
          <div className="experience-data-list resume-data-list">
             {experienceData.map((data) => {
                return (

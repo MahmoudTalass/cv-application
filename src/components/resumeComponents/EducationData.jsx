@@ -3,7 +3,6 @@ export default function EducationData({ educationData }) {
    return (
       <div className="education-data-section resume-section">
          <p className="section-heading">EDUCATION</p>
-         <div className="line-break"></div>
          <div className="education-data-list resume-data-list">
             {educationData.map((data) => {
                return (
