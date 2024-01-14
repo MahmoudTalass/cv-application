@@ -15,7 +15,6 @@ export default function ExperienceCard({
    handleExperienceInfo,
    handleDisplayForms,
 }) {
-   debugger;
    return (
       <div className="experience-card content-card">
          {isExperienceBeingEdited && (
