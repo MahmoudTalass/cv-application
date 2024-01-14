@@ -1,11 +1,9 @@
 /* eslint-disable react/prop-types */
-import ExperienceInfoForm from "./ExperienceInfoForm";
 import PersonalInfoForm from "./PersonalInfoForm";
-import ExperienceList from "./ExperienceList";
 import { useState } from "react";
 import EditPersonalInfoForm from "./EditPersonalInfoForm";
-import EditExperienceForm from "./EditExperienceForm";
 import EducationCard from "./EducationCard";
+import ExperienceCard from "./ExperienceCard";
 
 export default function ResumeForms({
    handlePersonalInfo,
@@ -156,33 +154,15 @@ export default function ResumeForms({
                Experience:
             </button>
             {displayCard.showExperienceCard && (
-               <div className="experience-card content-card">
-                  {isEditing.experienceSection && (
-                     <EditExperienceForm
-                        handleEditExperience={handleEditExperience}
-                        handleDisplayEditForm={handleDisplayEditForm}
-                        editedExperience={editedInfo.experienceInfo}
-                     />
-                  )}
-                  {experienceInfo.length > 0 &&
-                     !isEditing.experienceSection && (
-                        <ExperienceList
-                           experienceInfo={experienceInfo}
-                           handleRemoveExperience={handleRemoveExperience}
-                           handleDisplayEditForm={handleDisplayEditForm}
-                           handleInfoBeingEdited={handleInfoBeingEdited}
-                        />
-                     )}
-                  <button
-                     className="add-experience-btn add-btn"
-                     onClick={() => handleDisplayForms("showExperienceForm")}
-                  >
-                     Add
-                  </button>
-               </div>
-            )}
-            {displayForms.showExperienceForm && (
-               <ExperienceInfoForm
+               <ExperienceCard
+                  isExperienceBeingEdited={isEditing.experienceSection}
+                  handleEditExperience={handleEditExperience}
+                  handleDisplayEditForm={handleDisplayEditForm}
+                  editedInfo={editedInfo.experienceInfo}
+                  experienceInfo={experienceInfo}
+                  handleRemoveExperience={handleRemoveExperience}
+                  handleInfoBeingEdited={handleInfoBeingEdited}
+                  showExperienceForm={displayForms.showExperienceForm}
                   handleExperienceInfo={handleExperienceInfo}
                   handleDisplayForms={handleDisplayForms}
                />
