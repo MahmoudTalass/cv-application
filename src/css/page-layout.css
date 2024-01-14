@@ -23,8 +23,11 @@
    display: flex;
    justify-content: center;
    gap: 2rem;
+   margin-bottom: 1rem;
 }
 
 .footer {
    margin-top: auto;
+   text-align: center;
+   padding: 1rem;
 }
