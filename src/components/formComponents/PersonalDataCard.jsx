@@ -30,7 +30,7 @@ export default function PersonalDataCard({ personalInfo, handlePersonalInfo }) {
             />
          )}
 
-         {personalInfo.name !== undefined && (
+         {displayInitialForm && (
             <div className="personal-info-display">
                <p>{personalInfo.name}</p>
                <button
