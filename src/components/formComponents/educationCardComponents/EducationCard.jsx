@@ -9,6 +9,7 @@ export default function EducationCard({
    educationData,
    handleRemoveEducation,
    handleEducationData,
+   displayCard,
 }) {
    const [isEditing, setIsEditing] = useState(false);
    const [dataBeingEdited, setDataBeingEdited] = useState();
@@ -26,40 +27,42 @@ export default function EducationCard({
       setDisplayAddForm(!displayAddForm);
    }
    return (
-      <>
-         <div className="education-content-card content-card">
-            {isEditing && (
-               <EditEducationForm
-                  handleEditEducation={handleEditEducation}
-                  handleEditingStatus={handleEditingStatus}
-                  dataBeingEdited={dataBeingEdited}
-               />
-            )}
-            {educationData.length > 0 && !isEditing && !displayAddForm && (
-               <EducationList
-                  educationData={educationData}
-                  handleRemoveEducation={handleRemoveEducation}
-                  handleEditingStatus={handleEditingStatus}
-                  handleDataBeingEdited={handleDataBeingEdited}
-               />
-            )}
+      <div
+         className={`${
+            displayCard && "visible"
+         } education-content-card content-card`}
+      >
+         {isEditing && (
+            <EditEducationForm
+               handleEditEducation={handleEditEducation}
+               handleEditingStatus={handleEditingStatus}
+               dataBeingEdited={dataBeingEdited}
+            />
+         )}
+         {educationData.length > 0 && !isEditing && !displayAddForm && (
+            <EducationList
+               educationData={educationData}
+               handleRemoveEducation={handleRemoveEducation}
+               handleEditingStatus={handleEditingStatus}
+               handleDataBeingEdited={handleDataBeingEdited}
+            />
+         )}
 
-            {displayAddForm && (
-               <EducationDataForm
-                  handleEducationData={handleEducationData}
-                  handleDisplayAddForm={handleDisplayAddForm}
-               />
-            )}
+         {displayAddForm && (
+            <EducationDataForm
+               handleEducationData={handleEducationData}
+               handleDisplayAddForm={handleDisplayAddForm}
+            />
+         )}
 
-            {!displayAddForm && !isEditing && (
-               <button
-                  className="add-education-btn add-btn"
-                  onClick={() => handleDisplayAddForm()}
-               >
-                  Add
-               </button>
-            )}
-         </div>
-      </>
+         {!displayAddForm && !isEditing && (
+            <button
+               className="add-education-btn add-btn"
+               onClick={() => handleDisplayAddForm()}
+            >
+               Add
+            </button>
+         )}
+      </div>
    );
 }

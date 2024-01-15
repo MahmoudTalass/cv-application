@@ -9,6 +9,7 @@ export default function ExperienceCard({
    experienceData,
    handleRemoveExperience,
    handleExperienceData,
+   displayCard,
 }) {
    const [isEditing, setIsEditing] = useState(false);
    const [dataBeingEdited, setDataBeingEdited] = useState();
@@ -27,7 +28,9 @@ export default function ExperienceCard({
    }
 
    return (
-      <div className="experience-card content-card">
+      <div
+         className={`${displayCard && "visible"} experience-card content-card`}
+      >
          {isEditing && (
             <EditExperienceForm
                handleEditExperience={handleEditExperience}

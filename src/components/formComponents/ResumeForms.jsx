@@ -52,6 +52,7 @@ export default function ResumeForms({
                <PersonalDataCard
                   personalData={personalData}
                   handlePersonalData={handlePersonalData}
+                  displayCard={displayCard.showPersonalCard}
                />
             )}
          </div>
@@ -69,6 +70,7 @@ export default function ResumeForms({
                   educationData={educationData}
                   handleRemoveEducation={handleRemoveEducation}
                   handleEducationData={handleEducationData}
+                  displayCard={displayCard.showEducationCard}
                />
             )}
          </div>
@@ -85,6 +87,7 @@ export default function ResumeForms({
                   experienceData={experienceData}
                   handleRemoveExperience={handleRemoveExperience}
                   handleExperienceData={handleExperienceData}
+                  displayCard={displayCard.showExperienceCard}
                />
             )}
          </div>

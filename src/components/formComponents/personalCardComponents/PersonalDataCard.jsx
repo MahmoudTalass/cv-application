@@ -3,7 +3,11 @@ import EditPersonalDataForm from "./EditPersonalDataForm";
 import PersonalDataForm from "./PersonalDataForm";
 import { useState } from "react";
 
-export default function PersonalDataCard({ personalData, handlePersonalData }) {
+export default function PersonalDataCard({
+   personalData,
+   handlePersonalData,
+   displayCard,
+}) {
    const [isEditing, setIsEditing] = useState(false);
    const [displayInitialForm, setDisplayInitialForm] = useState(false);
 
@@ -15,7 +19,11 @@ export default function PersonalDataCard({ personalData, handlePersonalData }) {
       setDisplayInitialForm(!displayInitialForm);
    }
    return (
-      <div className="personal-content-card content-card">
+      <div
+         className={`${
+            displayCard && "visible"
+         } personal-content-card content-card`}
+      >
          {isEditing && (
             <EditPersonalDataForm
                handlePersonalData={handlePersonalData}
