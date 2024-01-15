@@ -14,16 +14,8 @@ export default function App() {
    });
    const [educationData, setEducationData] = useState([
       {
-         school: "University of Maryland",
-         degree: "Computer Science",
-         city: "College Park",
-         state: "MD",
-         graduationDate: "04/2024",
-         id: crypto.randomUUID(),
-      },
-      {
          school: "Harvard College",
-         degree: "Quantum Physics",
+         degree: "Bachelor of Computer Science",
          city: "Cambridege",
          state: "MA",
          graduationDate: "12/2018",
