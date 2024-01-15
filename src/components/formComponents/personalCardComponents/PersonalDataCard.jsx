@@ -38,7 +38,7 @@ export default function PersonalDataCard({
             />
          )}
 
-         {displayInitialForm && (
+         {displayInitialForm && !isEditing && (
             <div className="personal-data-display">
                <p>{personalData.name}</p>
                <button
