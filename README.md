@@ -48,6 +48,6 @@ This project is deployed on Netlify. You can deploy your own version by followin
 
 ## Credits
 
--  This project was created with love by [Your Name].
+-  This project was by Mahmoud Talass.
 
 Build your personalized CV with the CV Builder today!
